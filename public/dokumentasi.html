@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumentasi - IDAIDO BOT</title>
+  <meta name="description" content="Dokumentasi lengkap penggunaan IDAIDO BOT">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-owner-number="62812xxxxx" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
+  
+    <header>
+      <div class="container">
+        <div class="logo">IDAIDO BOT</div>
+        <button class="btn-menu" aria-label="Menu">☰</button>
+        <nav>
+          <ul>
+            <li><a href="#fitur">Fitur</a></li><li><a href="#harga">Harga</a></li><li><a href="command.html">Perintah</a></li><li><a href="panduan.html">Panduan</a></li><li><a href="dokumentasi.html">Dokumentasi</a></li><li><a href="changelog.html">Changelog</a></li>
+            <li><a href="#hubungi" class="btn btn-primary btn-whatsapp">Hubungi Owner</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
+  <main>
+    <section>
+      <div class="container">
+        <h1>Dokumentasi</h1>
+        <p>Panduan lengkap untuk menggunakan IDAIDO BOT dengan optimal</p>
+        
+        <div class="doc-nav">
+          <h3>Navigasi Dokumentasi</h3>
+          <ul>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#setup">Setup & Konfigurasi</a></li>
+            <li><a href="#commands">Daftar Perintah</a></li>
+            <li><a href="panduan.html#faq">FAQ Lengkap</a></li>
+            <li><a href="panduan.html#troubleshooting">Troubleshooting</a></li>
+          </ul>
+        </div>
+
+        <section id="quickstart">
+          <h2>Quick Start</h2>
+          <div><br>## Quickstart untuk Admin Grup<br><br>Sebelum mulai, pastikan:<br>1. <strong>Bot sudah di-invite ke grup</strong> oleh owner<br>2. <strong>Anda adalah admin grup</strong> (atau buat grup baru dengan bot)<br>3. <strong>Bot adalah admin</strong> (berikan akses admin ke bot)<br><br>### Langkah 1: Jadikan Bot Admin<br>Kirim perintah ke grup:<br>```<br>.setadmin on<br>```<br><br>### Langkah 2: Setup Katalog<br>Buat katalog produk:<br>```<br>.addlist Netflix | Langganan Netflix 30 hari | 50000<br>.addlist Spotify | Langganan Spotify 1 bulan | 30000<br>```<br><br>Lihat katalog:<br>```<br>.list<br>```<br><br>### Langkah 3: Setup Template Pesan<br>Buat template untuk status pesanan:<br>```<br>.tempproses Template: Pesanan sedang kami proses, mohon ditunggu ya 🙏<br>.tempdone Template: Pesanan selesai! Akun sudah dikirim 🎉<br>```<br><br>### Langkah 4: Setup Jadwal<br>Setup jam buka dan tutup otomatis:<br>```<br>.autoopen on<br>.autoopenset 08:00<br>.autoclose on<br>.autocloseset 22:00<br>```<br><br>### Langkah 5: Aktifkan Moderasi<br>Setup antilink dan blacklist:<br>```<br>.antilink on<br>.addblacklist 62812xxxx Nama Penipu<br>```<br><br>Selesai! Bot siap beroperasi.<br>    </div>
+        </section>
+
+        <section id="setup">
+          <h2>Alur Kerja Harian</h2>
+          <div><br>## Alur Kerja Harian<br><br>### Pagi (Saat Buka Grup)<br>1. Bot otomatis buka grup (jika jadwal aktif)<br>2. Kirim sapaan ke group dengan `.announce Pagi! Grup sudah dibuka`<br><br>### Saat Ada Pesanan<br>1. Pelanggan chat atau kirim ke grup<br>2. Anda balas chat pelanggan<br>3. Kirim perintah `.proses` (balas chat pelanggan)<br>4. Template otomatis terkirim<br><br>### Saat Pesanan Selesai<br>1. Kirim akun/barang ke pelanggan<br>2. Kirim perintah `.done 50000` (balas chat dengan nominal)<br>3. Bot otomatis catat ke laporan<br><br>### Malam (Saat Tutup Grup)<br>1. Bot otomatis tutup grup (jika jadwal aktif)<br>2. Laporan otomatis di-generate ke Excel dengan `.dataordernow`<br><br>### Akhir Hari<br>1. Ekspor laporan dengan `.dataorderweek` atau `.dataordermonth`<br>2. Rekap omset dan pesanan<br>    </div>
+        </section>
+
+        <section id="commands">
+          <h2>Daftar Perintah</h2>
+          <p>Berikut adalah perintah yang tersedia di IDAIDO BOT:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Perintah</th>
+                  <th>Fungsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td><code>.list</code></td>
+                    <td>Lihat katalog produk</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.addlist netflix | Langganan Netflix 30 hari</code></td>
+                    <td>Tambah produk ke katalog</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.proses</code></td>
+                    <td>Tandai pesanan sedang diproses (balas chat pelanggan)</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.done 50000</code></td>
+                    <td>Tandai pesanan selesai + catat nominal (balas chat pelanggan)</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.dataordernow</code></td>
+                    <td>Laporan order hari ini ke Excel</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.addblacklist 62812xxxx Nama</code></td>
+                    <td>Tambah nomor ke blacklist</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.autoopen on</code></td>
+                    <td>Aktifkan buka grup otomatis</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.autoopenset 08:00</code></td>
+                    <td>Set jam buka otomatis</td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>IDAIDO BOT</h3>
+            <p>Bot WhatsApp terpercaya untuk jualan online</p>
+          </div>
+          <div class="footer-section">
+            <h3>Navigasi</h3>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="command.html">Daftar Perintah</a></li>
+              <li><a href="panduan.html">Panduan</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Kontak</h3>
+            <ul>
+              <li><a href="https://wa.me/62812" target="_blank" rel="noopener">WhatsApp</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <p style="font-size: 0.875rem;">IDAIDO BOT adalah produk tidak resmi yang menggunakan library WhatsApp tidak resmi. Kami tidak berafiliasi dengan WhatsApp Inc. Penggunaan bot ini sepenuhnya tanggung jawab Anda. Kami tidak bertanggung jawab atas kehilangan data, suspend akun, atau dampak lainnya dari penggunaan bot.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 IDAIDO BOT. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

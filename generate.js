@@ -36,6 +36,8 @@ function renderHeader() {
     { href: "#harga", label: "Harga" },
     { href: "command.html", label: "Perintah" },
     { href: "panduan.html", label: "Panduan" },
+    { href: "dokumentasi.html", label: "Dokumentasi" },
+    { href: "changelog.html", label: "Changelog" },
   ];
 
   return `
@@ -363,6 +365,128 @@ function generateCommand() {
   return html;
 }
 
+// ===== PAGE: CHANGELOG =====
+function generateChangelog() {
+  const html = `<!DOCTYPE html>
+<html lang="${content.site.language}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog - ${escapeHtml(content.brand.name)}</title>
+  <meta name="description" content="Rilis terbaru dan update history ${escapeHtml(content.brand.name)}">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-owner-number="${content.brand.ownerNumber}" data-message="${content.brand.whatsappMessage}">
+  ${renderHeader()}
+  <main>
+    <section>
+      <div class="container">
+        <h1>Changelog</h1>
+        <p>Rilis terbaru dan update history ${escapeHtml(content.brand.name)}</p>
+        
+        <div class="changelog-list">
+          ${content.changelog
+            .map(
+              (release) => `
+            <div class="changelog-item">
+              <div class="changelog-header">
+                <h2>v${escapeHtml(release.version)}</h2>
+                <p class="changelog-date">${escapeHtml(release.date)}</p>
+              </div>
+              <ul class="changelog-changes">
+                ${release.changes.map((change) => `<li>${escapeHtml(change)}</li>`).join("")}
+              </ul>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    </section>
+  </main>
+  ${renderFooter()}
+  <script src="assets/js/app.js"></script>
+</body>
+</html>`;
+  return html;
+}
+
+// ===== PAGE: DOKUMENTASI =====
+function generateDocumentation() {
+  const html = `<!DOCTYPE html>
+<html lang="${content.site.language}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumentasi - ${escapeHtml(content.brand.name)}</title>
+  <meta name="description" content="Dokumentasi lengkap penggunaan ${escapeHtml(content.brand.name)}">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-owner-number="${content.brand.ownerNumber}" data-message="${content.brand.whatsappMessage}">
+  ${renderHeader()}
+  <main>
+    <section>
+      <div class="container">
+        <h1>Dokumentasi</h1>
+        <p>Panduan lengkap untuk menggunakan ${escapeHtml(content.brand.name)} dengan optimal</p>
+        
+        <div class="doc-nav">
+          <h3>Navigasi Dokumentasi</h3>
+          <ul>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#setup">Setup & Konfigurasi</a></li>
+            <li><a href="#commands">Daftar Perintah</a></li>
+            <li><a href="panduan.html#faq">FAQ Lengkap</a></li>
+            <li><a href="panduan.html#troubleshooting">Troubleshooting</a></li>
+          </ul>
+        </div>
+
+        <section id="quickstart">
+          <h2>Quick Start</h2>
+          <div>${formatText(content.setupGuide.quickstart)}</div>
+        </section>
+
+        <section id="setup">
+          <h2>Alur Kerja Harian</h2>
+          <div>${formatText(content.setupGuide.dailyWorkflow)}</div>
+        </section>
+
+        <section id="commands">
+          <h2>Daftar Perintah</h2>
+          <p>Berikut adalah perintah yang tersedia di ${escapeHtml(content.brand.name)}:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Perintah</th>
+                  <th>Fungsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${Object.entries(content.commandExamples)
+                  .map(
+                    ([cmd, desc]) => `
+                  <tr>
+                    <td><code>${escapeHtml(cmd)}</code></td>
+                    <td>${escapeHtml(desc)}</td>
+                  </tr>
+                `
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  ${renderFooter()}
+  <script src="assets/js/app.js"></script>
+</body>
+</html>`;
+  return html;
+}
+
 // ===== PAGE: PANDUAN =====
 function generatePanduan() {
   const html = `<!DOCTYPE html>
@@ -450,6 +574,8 @@ function generate() {
     "index.html": generateIndex(),
     "command.html": generateCommand(),
     "panduan.html": generatePanduan(),
+    "dokumentasi.html": generateDocumentation(),
+    "changelog.html": generateChangelog(),
   };
 
   Object.entries(pages).forEach(([filename, html]) => {

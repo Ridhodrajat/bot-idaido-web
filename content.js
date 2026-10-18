@@ -321,6 +321,42 @@ Selesai! Bot siap beroperasi.
     },
   ],
 
+  // Changelog
+  changelog: [
+    {
+      version: "2.5.0",
+      date: "18 Oktober 2026",
+      changes: [
+        "✨ Fitur baru: Template nota custom dengan dynamic tags",
+        "🐛 Perbaikan: Antilink detection lebih akurat",
+        "⚡ Performa: Optimize command parsing lebih cepat",
+      ],
+    },
+    {
+      version: "2.4.5",
+      date: "10 Oktober 2026",
+      changes: [
+        "🎨 UI improvement: Katalog tampilan lebih rapi",
+        "🔒 Keamanan: Blacklist system lebih ketat",
+      ],
+    },
+    {
+      version: "2.4.0",
+      date: "1 Oktober 2026",
+      changes: [
+        "✨ Fitur baru: Jadwal otomatis buka/tutup grup",
+        "📊 Laporan order ke Excel support",
+      ],
+    },
+  ],
+
+  // Uptime & stats
+  stats_extended: {
+    uptime: "99.9%",
+    activeStores: "500+",
+    supportHours: "24/7",
+  },
+
   // Disclaimer
   disclaimer:
     "IDAIDO BOT adalah produk tidak resmi yang menggunakan library WhatsApp tidak resmi. Kami tidak berafiliasi dengan WhatsApp Inc. Penggunaan bot ini sepenuhnya tanggung jawab Anda. Kami tidak bertanggung jawab atas kehilangan data, suspend akun, atau dampak lainnya dari penggunaan bot.",
