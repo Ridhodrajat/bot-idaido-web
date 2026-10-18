@@ -1,0 +1,23 @@
+{
+  "name": "idaido-bot-web",
+  "version": "1.0.0",
+  "description": "Website informasi IDAIDO BOT - bot WhatsApp multi-grup untuk jualan online",
+  "main": "generate.js",
+  "scripts": {
+    "generate": "node generate.js",
+    "dev": "node generate.js && echo 'HTML files generated in public/'",
+    "build": "node generate.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "idaido",
+    "website",
+    "static-site"
+  ],
+  "author": "IDAIDO BOT",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
