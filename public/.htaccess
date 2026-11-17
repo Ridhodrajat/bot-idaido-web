@@ -1,0 +1,30 @@
+# ==========================================================================
+# InfinityFree Apache Configuration for IDAIDO BOT
+# ==========================================================================
+
+# 1. Enforce UTF-8 charset
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .json
+
+# 2. Prevent Directory Browsing
+Options -Indexes
+
+# 3. Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 4. Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# 5. Fallback Error Document
+ErrorDocument 404 /index.html

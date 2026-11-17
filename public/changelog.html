@@ -3,100 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Changelog - IDAIDO BOT</title>
-  <meta name="description" content="Rilis terbaru dan update history IDAIDO BOT">
+  <title>Catatan Rilis: IDAIDO BOT</title>
+  <meta name="description" content="Riwayat pembaruan fitur dan perbaikan IDAIDO BOT, dari versi terbaru ke versi sebelumnya.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-owner-number="62812xxxxx" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
-  
-    <header>
-      <div class="container">
-        <div class="logo">IDAIDO BOT</div>
-        <button class="btn-menu" aria-label="Menu">☰</button>
-        <nav>
-          <ul>
-            <li><a href="#fitur">Fitur</a></li><li><a href="#harga">Harga</a></li><li><a href="command.html">Perintah</a></li><li><a href="panduan.html">Panduan</a></li><li><a href="dokumentasi.html">Dokumentasi</a></li><li><a href="changelog.html">Changelog</a></li>
-            <li><a href="#hubungi" class="btn btn-primary btn-whatsapp">Hubungi Owner</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  
+<body data-owner-number="6289510214771" data-message="Halo Owner, saya ingin bertanya tentang pembaruan rilis IDAIDO BOT.">
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">ID</span>
+        <span class="logo-text">
+          IDAIDO BOT
+          <small>Asisten Grup WhatsApp</small>
+        </span>
+      </a>
+      <button class="btn-menu" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="index.html#fitur">Fitur</a></li>
+          <li><a href="index.html#harga">Harga</a></li>
+          <li><a href="dokumentasi.html">Dokumentasi</a></li>
+          <li><a href="changelog.html" class="active">Changelog</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li class="nav-cta"><a href="#kontak" class="btn btn-primary btn-whatsapp" data-wa-text="Halo Owner, saya ingin konsultasi sewa IDAIDO BOT.">Hubungi Owner</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section>
+    <section class="hero-subpage">
       <div class="container">
-        <h1>Changelog</h1>
-        <p>Rilis terbaru dan update history IDAIDO BOT</p>
-        
+        <span class="version-tag">Catatan Rilis Resmi</span>
+        <h1>Riwayat Pembaruan Bot</h1>
+        <p class="lead">Seluruh peningkatan, fitur baru, dan perbaikan pada IDAIDO BOT dicatat secara transparan di sini. Pembaruan otomatis diterapkan ke seluruh grup penyewa tanpa perlu instalasi ulang.</p>
+      </div>
+    </section>
+
+    <section style="padding-top: 2.5rem;">
+      <div class="container" style="max-width: 820px;">
         <div class="changelog-list">
-          
-            <div class="changelog-item">
-              <div class="changelog-header">
-                <h2>v2.5.0</h2>
-                <p class="changelog-date">18 Oktober 2026</p>
+          <!-- Versi 1.1.0 -->
+          <div class="changelog-card" id="v1-1-0">
+            <div class="changelog-card-header">
+              <div>
+                <span class="badge badge-primary" style="margin-bottom: 0.25rem;">Rilis Terbaru</span>
+                <h3>Versi 1.1.0</h3>
               </div>
-              <ul class="changelog-changes">
-                <li>✨ Fitur baru: Template nota custom dengan dynamic tags</li><li>🐛 Perbaikan: Antilink detection lebih akurat</li><li>⚡ Performa: Optimize command parsing lebih cepat</li>
-              </ul>
+              <span class="badge badge-default">17 November 2026</span>
             </div>
-          
-            <div class="changelog-item">
-              <div class="changelog-header">
-                <h2>v2.4.5</h2>
-                <p class="changelog-date">10 Oktober 2026</p>
+
+            <p style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Sistem Paket Trial & Berbayar, Harga Baru, serta Perintah Owner</p>
+            <ul>
+              <li><strong>Sistem Paket Bertingkat:</strong> Pemisahan resmi paket <em>Trial (gratis)</em> dan <em>Berbayar (paid)</em>. Grup trial dibatasi kuota 300 balasan per hari (reset pukul 00.00 WIB) dengan fitur premium terkunci bertanda 🔒. Paket berbayar bebas iklan, tanpa batas balasan harian, dan seluruh fitur terbuka.</li>
+              <li><strong>Perintah Baru:</strong>
+                <br>• <code>.trial [durasi]</code>: Mengaktifkan masa trial grup dengan durasi hari fleksibel (default 7 hari).
+                <br>• <code>.setplan &lt;trial|paid&gt;</code>: Mengubah status paket grup tanpa mengubah masa berlaku sewa.
+                <br>• <code>.paket</code>: Menampilkan status paket grup, sisa kuota balasan harian trial, dan daftar harga sewa.
+              </li>
+              <li><strong>Penyesuaian Harga Sewa:</strong>
+                <br>• Paket Mingguan (7 hari): Rp5.000
+                <br>• Paket Bulanan (30 hari): Rp10.000 (Hemat 53% dibanding mingguan)
+              </li>
+              <li><strong>Iklan Upsell Trial Cerdas:</strong> Penempatan banner ringkas di atas pada pesan katalog panjang (>18 baris / >900 karakter) agar tidak tenggelam, iklan di bawah pada pesan pendek, serta iklan ringkas pada welcome message. Iklan tidak ditempel pada pesan peringatan, error, menu, atau daftar harga.</li>
+              <li><strong>Peningkatan Moderasi Grup:</strong> Penegakan antilink dan antiwame kini benar-benar menghapus pesan liar dan memberikan tindakan peringatan/kick sesuai mode yang dipilih.</li>
+              <li><strong>Hak Akses Menu Dinamis:</strong> Perintah khusus admin dan owner disembunyikan otomatis dari tampilan <code>.menu</code> anggota biasa sehingga menu lebih ringkas dan bersih.</li>
+              <li><strong>Perbaikan Laporan Excel:</strong> Penanganan nomor identitas WhatsApp (LID) diperbaiki sehingga nomor asli pelanggan tercatat akurat pada rekap file Excel.</li>
+            </ul>
+          </div>
+
+          <!-- Versi 1.0.0 -->
+          <div class="changelog-card" id="v1-0-0">
+            <div class="changelog-card-header">
+              <div>
+                <span class="badge badge-default" style="margin-bottom: 0.25rem;">Rilis Awal</span>
+                <h3>Versi 1.0.0</h3>
               </div>
-              <ul class="changelog-changes">
-                <li>🎨 UI improvement: Katalog tampilan lebih rapi</li><li>🔒 Keamanan: Blacklist system lebih ketat</li>
-              </ul>
+              <span class="badge badge-default">18 Oktober 2026</span>
             </div>
-          
-            <div class="changelog-item">
-              <div class="changelog-header">
-                <h2>v2.4.0</h2>
-                <p class="changelog-date">1 Oktober 2026</p>
-              </div>
-              <ul class="changelog-changes">
-                <li>✨ Fitur baru: Jadwal otomatis buka/tutup grup</li><li>📊 Laporan order ke Excel support</li>
-              </ul>
-            </div>
-          
+
+            <p style="font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Peluncuran Perdana Fondasi IDAIDO BOT</p>
+            <ul>
+              <li><strong>Katalog Produk:</strong> Tambah, ubah, dan hapus produk (<code>.addlist</code>, <code>.updatelist</code>, <code>.dellist</code>, <code>.list</code>) lengkap dengan dukungan gambar produk serta format template teks.</li>
+              <li><strong>Pencatatan Transaksi:</strong> Pengelolaan status proses (<code>.p</code> / <code>.proses</code>) dan selesai (<code>.d</code> / <code>.done</code>), pembacaan bukti transfer via OCR, serta template pesan buka/tutup toko.</li>
+              <li><strong>Rekap Laporan Excel:</strong> Ekspor rekap pendapatan dan data transaksi bulanan, mingguan, dan harian langsung ke format spreadsheet Excel (.xlsx).</li>
+              <li><strong>Moderasi & Keamanan:</strong> Antilink, antiwame, pembuka/penutup grup otomatis sesuai jadwal jam operasional, hidetag, dan blacklist pengganggu yang dapat dibatalkan sewaktu-waktu.</li>
+              <li><strong>Sambutan Otomatis:</strong> Pesan selamat datang (welcome) dan selamat tinggal (goodbye) kustom dengan variabel nama dan nama grup dinamis.</li>
+              <li><strong>Sistem Sewa (Rental):</strong> Manajemen sewa per grup (<code>.addsewa</code>, <code>.delsewa</code>, <code>.listsewa</code>, <code>.ceksewa</code>) dengan pengingat otomatis menjelang masa sewa berakhir.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hubungi Kami -->
+    <section id="kontak">
+      <div class="container" style="max-width: 820px;">
+        <div class="cta-box">
+          <div>
+            <h2>Ingin Bertanya Soal Fitur?</h2>
+            <p>Konsultasikan kebutuhan grup WhatsApp tokomu langsung dengan owner kami.</p>
+          </div>
+          <a href="#kontak" class="btn btn-primary btn-whatsapp" data-wa-text="Halo Owner, saya membaca changelog dan ingin bertanya tentang fitur IDAIDO BOT.">Chat WhatsApp Owner</a>
         </div>
       </div>
     </section>
   </main>
-  
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>IDAIDO BOT</h3>
-            <p>Bot WhatsApp terpercaya untuk jualan online</p>
-          </div>
-          <div class="footer-section">
-            <h3>Navigasi</h3>
-            <ul>
-              <li><a href="index.html">Beranda</a></li>
-              <li><a href="command.html">Daftar Perintah</a></li>
-              <li><a href="panduan.html">Panduan</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3>Kontak</h3>
-            <ul>
-              <li><a href="https://wa.me/62812" target="_blank" rel="noopener">WhatsApp</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3>Legal</h3>
-            <p style="font-size: 0.875rem;">IDAIDO BOT adalah produk tidak resmi yang menggunakan library WhatsApp tidak resmi. Kami tidak berafiliasi dengan WhatsApp Inc. Penggunaan bot ini sepenuhnya tanggung jawab Anda. Kami tidak bertanggung jawab atas kehilangan data, suspend akun, atau dampak lainnya dari penggunaan bot.</p>
-          </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>IDAIDO BOT</h4>
+          <p>Bot WhatsApp untuk membantu mengelola grup jualan: katalog produk, pesanan, moderasi grup, dan laporan pendapatan.</p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 IDAIDO BOT. All rights reserved.</p>
+
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#demo">Simulasi Demo</a></li>
+            <li><a href="index.html#harga">Paket Sewa</a></li>
+            <li><a href="dokumentasi.html">Dokumentasi</a></li>
+            <li><a href="changelog.html">Catatan Rilis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bantuan & Legal</h4>
+          <ul>
+            <li><a href="policy.html#syarat">Syarat & Ketentuan</a></li>
+            <li><a href="policy.html#privasi">Kebijakan Privasi</a></li>
+            <li><a href="index.html#kontak" class="btn-whatsapp" data-wa-text="Halo Owner, saya ingin bertanya tentang bot IDAIDO.">Hubungi WhatsApp Owner</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  
+
+      <div class="footer-bottom">
+        <div>© 2026 IDAIDO BOT. Seluruh hak cipta dilindungi.</div>
+        <div>Bot ini memakai library pihak ketiga tidak resmi dan bukan produk resmi WhatsApp Inc.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="index.html#kontak" class="floating-whatsapp btn-whatsapp" data-wa-text="Halo Owner IDAIDO BOT, saya ingin bertanya soal bot.">
+    <span>💬 Butuh bantuan? Chat owner</span>
+  </a>
+
   <script src="assets/js/app.js"></script>
 </body>
 </html>
