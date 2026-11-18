@@ -3,1019 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dokumentasi & Daftar Perintah: IDAIDO BOT</title>
-  <meta name="description" content="Panduan memakai IDAIDO BOT: cara mengundang bot, mengatur katalog, mencatat pesanan, dan daftar lengkap 88 perintah bot WhatsApp.">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+  <title>Dokumentasi - IDAIDO BOT</title>
+  <meta name="description" content="Dokumentasi lengkap penggunaan IDAIDO BOT">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-owner-number="6289510214771" data-message="Halo Owner, saya ingin bertanya tentang panduan perintah IDAIDO BOT.">
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <a href="index.html" class="logo">
-        <span class="logo-badge">ID</span>
-        <span class="logo-text">
-          IDAIDO BOT
-          <small>Asisten Grup WhatsApp</small>
-        </span>
-      </a>
-      <button class="btn-menu" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="index.html#fitur">Fitur</a></li>
-          <li><a href="index.html#harga">Harga</a></li>
-          <li><a href="dokumentasi.html" class="active">Dokumentasi</a></li>
-          <li><a href="changelog.html">Changelog</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
-          <li class="nav-cta"><a href="#kontak" class="btn btn-primary btn-whatsapp" data-wa-text="Halo Owner, saya ingin konsultasi sewa IDAIDO BOT.">Hubungi Owner</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero-subpage">
+<body data-owner-number="62812xxxxx" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
+  
+    <header>
       <div class="container">
-        <span class="version-tag">Dokumentasi Resmi · Bot v1.1.0</span>
-        <h1>Dokumentasi & Daftar Perintah</h1>
-        <p class="lead">Panduan lengkap memakai IDAIDO BOT mulai dari persiapan grup, aturan penulisan perintah, manajemen transaksi, hingga referensi 88 perintah bot.</p>
-      </div>
-    </section>
-
-    <section style="padding-top: 2.5rem;">
-      <div class="container docs-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="docs-sidebar">
-          <h4>Daftar Isi</h4>
+        <div class="logo">IDAIDO BOT</div>
+        <button class="btn-menu" aria-label="Menu">☰</button>
+        <nav>
           <ul>
-            <li><a href="#persiapan">1. Persiapan Awal</a></li>
-            <li><a href="#aturan-perintah">2. Aturan Perintah</a></li>
-            <li><a href="#perintah">3. Tabel 88 Perintah</a></li>
-            <li><a href="#alur-transaksi">4. Alur Transaksi Harian</a></li>
-            <li><a href="#laporan-rekap">5. Laporan & Bukti Transfer</a></li>
-            <li><a href="#blacklist">6. Blacklist Nomor</a></li>
-            <li><a href="#jadwal-toko">7. Jadwal & Laporan Otomatis</a></li>
-            <li><a href="#troubleshooting">8. Kendala Umum (Solusi)</a></li>
+            <li><a href="#fitur">Fitur</a></li><li><a href="#harga">Harga</a></li><li><a href="command.html">Perintah</a></li><li><a href="panduan.html">Panduan</a></li><li><a href="dokumentasi.html">Dokumentasi</a></li><li><a href="changelog.html">Changelog</a></li>
+            <li><a href="#hubungi" class="btn btn-primary btn-whatsapp">Hubungi Owner</a></li>
           </ul>
-        </aside>
-
-        <!-- Main Documentation Content -->
-        <div class="docs-content">
-          <!-- 1. Persiapan -->
-          <div class="card" id="persiapan">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 1</span>
-            <h2>1. Persiapan Memulai</h2>
-            <p>Ikuti 3 langkah awal berikut setelah masa sewa grupmu diaktifkan oleh owner:</p>
-            <ol style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
-              <li><strong>Undang nomor bot ke grup tokomu.</strong> Nomor bot akan dikirimkan oleh owner setelah pendaftaran sewa selesai.</li>
-              <li><strong>Jadikan bot sebagai admin grup.</strong> Tanpa hak admin grup, fitur moderasi link, proteksi blacklist, buka/tutup grup otomatis, dan pembaruan profil grup tidak dapat berfungsi.</li>
-              <li><strong>Ketik <code>.menu</code> di dalam grup</strong> untuk memastikan bot aktif dan melihat daftar perintah yang dapat kamu akses sesuai peran (admin/anggota).</li>
-            </ol>
-            <div class="pre-code">.ceksewa
-.menu</div>
-          </div>
-
-          <!-- 2. Aturan Perintah -->
-          <div class="card" id="aturan-perintah">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 2</span>
-            <h2>2. Cara Menulis Perintah</h2>
-            <p>Bot dirancang agar fleksibel dan tidak kaku saat digunakan dalam percakapan grup:</p>
-            <ul style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem;">
-              <li><strong>Awalan Titik (<code>.</code>):</strong> Perintah utama diawali titik, misalnya <code>.list</code>, <code>.paket</code>, <code>.antilink on</code>.</li>
-              <li><strong>Bisa Tanpa Awalan (Khusus Produk):</strong> Pembeli cukup mengetik nama produk (misalnya <code>netflix</code>) tanpa titik untuk melihat rincian harga.</li>
-              <li><strong>Tidak Peka Huruf Besar/Kecil:</strong> Mengetik <code>.LIST</code>, <code>.List</code>, atau <code>.list</code> memberikan respon yang sama.</li>
-              <li><strong>Membalas Pesan (Reply):</strong> Perintah proses (<code>.p</code>) dan selesai (<code>.d [nominal]</code>) digunakan dengan cara membalas pesan pesanan atau bukti transfer dari pembeli.</li>
-              <li><strong>Mention / Tag Anggota:</strong> Perintah anggota memakai tanda @, misalnya <code>.kick @anggota</code> atau <code>.promote @anggota</code>.</li>
-              <li><strong>Hak Akses Bertingkat:</strong> Perintah ditandai dengan akses <em>Semua</em>, <em>Admin Grup</em>, atau <em>Owner Bot</em>. Menu bot otomatis menyembunyikan perintah yang tidak berhak diakses pengguna biasa.</li>
-            </ul>
-          </div>
-
-          <!-- 3. Tabel Interaktif 88 Perintah -->
-          <div class="card" id="perintah">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 3 · Referensi Kode</span>
-            <h2>3. Daftar Lengkap 88 Perintah Bot</h2>
-            <p>Cari perintah atau saring berdasarkan kategori, hak akses, dan paket grup. Fitur bertanda 🔒 hanya aktif pada paket Berbayar.</p>
-
-            <div class="filter-bar">
-              <div>
-                <input type="text" id="search-commands" class="filter-input" placeholder="Cari nama perintah, deskripsi, atau contoh..." aria-label="Cari perintah">
-              </div>
-              <div>
-                <select id="filter-category" class="filter-select" aria-label="Saring kategori">
-                  <option value="all">Semua Kategori</option>
-                  <option value="product">📦 Katalog Produk</option>
-                  <option value="transaction">🔄 Transaksi</option>
-                  <option value="moderation">🛡️ Moderasi Grup</option>
-                  <option value="settings">⚙️ Pengaturan Bot</option>
-                  <option value="welcome">👋 Welcome / Goodbye</option>
-                  <option value="owner">👑 Owner & Info</option>
-                  <option value="utility">🔧 Utilitas</option>
-                </select>
-              </div>
-              <div>
-                <select id="filter-access" class="filter-select" aria-label="Saring hak akses">
-                  <option value="all">Semua Akses</option>
-                  <option value="semua">Anggota (Semua)</option>
-                  <option value="admin">Khusus Admin</option>
-                  <option value="owner">Khusus Owner</option>
-                </select>
-              </div>
-              <div>
-                <select id="filter-plan" class="filter-select" aria-label="Saring paket">
-                  <option value="all">Semua Paket</option>
-                  <option value="trial">Termasuk Trial</option>
-                  <option value="premium">🔒 Khusus Berbayar</option>
-                </select>
-              </div>
-            </div>
-
-            <p id="cmd-counter" class="cmd-counter"></p>
-
-            <div class="table-wrapper">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Perintah</th>
-                    <th>Penjelasan & Kegunaan</th>
-                    <th>Contoh Pemakaian</th>
-                    <th>Kategori</th>
-                    <th>Hak Akses</th>
-                    <th>Paket</th>
-                  </tr>
-                </thead>
-                <tbody>
-              <tr data-category="owner" data-access="semua" data-plan="trial">
-                <td><code>.menu</code></td>
-                <td>Menampilkan menu bot</td>
-                <td><code>.menu</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="semua" data-plan="trial">
-                <td><code>.cekmenu</code> <small style="color:var(--text-subtle);">(alias)</small></td>
-                <td>Menampilkan menu bot (alias)</td>
-                <td><code>.cekmenu</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="semua" data-plan="trial">
-                <td><code>.owner</code></td>
-                <td>Menampilkan kontak owner</td>
-                <td><code>.owner</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.addsewa</code></td>
-                <td>Tambah/perpanjang sewa (owner)</td>
-                <td><code>.addsewa 30</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.trial</code></td>
-                <td>Aktifkan trial dengan durasi bebas (owner)</td>
-                <td><code>.trial 7</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.delsewa</code></td>
-                <td>Nonaktifkan sewa (owner)</td>
-                <td><code>.delsewa</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="semua" data-plan="trial">
-                <td><code>.ceksewa</code></td>
-                <td>Cek status sewa grup</td>
-                <td><code>.ceksewa</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.listsewa</code></td>
-                <td>List semua rental (owner)</td>
-                <td><code>.listsewa</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.setplan</code></td>
-                <td>Ubah paket sewa: trial/paid (owner)</td>
-                <td><code>.setplan paid</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="semua" data-plan="trial">
-                <td><code>.paket</code></td>
-                <td>Lihat paket & harga sewa</td>
-                <td><code>.paket</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.antiprivate</code></td>
-                <td>Aktifkan/matikan anti private chat</td>
-                <td><code>.antiprivate</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.setprivatelimit</code></td>
-                <td>Atur batas pesan private</td>
-                <td><code>.setprivatelimit</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.autoblock</code></td>
-                <td>Auto-block internal on/off</td>
-                <td><code>.autoblock</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.cekantiprivate</code></td>
-                <td>Lihat status anti private chat</td>
-                <td><code>.cekantiprivate</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="owner" data-access="owner" data-plan="trial">
-                <td><code>.setowner</code></td>
-                <td>Simpan nomor owner override</td>
-                <td><code>.setowner</code></td>
-                <td><span class="badge badge-default">Owner & Info</span></td>
-                <td><span class="badge badge-owner">Owner</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="semua" data-plan="trial">
-                <td><code>.list</code></td>
-                <td>Lihat katalog produk</td>
-                <td><code>.list</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.addlist</code></td>
-                <td>Tambah produk</td>
-                <td><code>.addlist netflix | Netflix 1 Bulan Rp50.000</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.updatelist</code></td>
-                <td>Ubah info produk</td>
-                <td><code>.updatelist netflix | Netflix 1 Bulan Rp45.000</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.renamelist</code></td>
-                <td>Ganti nama produk</td>
-                <td><code>.renamelist netflix nfx</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.dellist</code></td>
-                <td>Hapus produk</td>
-                <td><code>.dellist netflix</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.setproses</code></td>
-                <td>Pilih template proses</td>
-                <td><code>.setproses ⏳ Pesanan {user} sedang disiapkan</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.changeproses</code></td>
-                <td>Ubah template proses</td>
-                <td><code>.changeproses</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.delsetproses</code></td>
-                <td>Reset template proses</td>
-                <td><code>.delsetproses</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.setdone</code></td>
-                <td>Pilih template selesai</td>
-                <td><code>.setdone ✅ Pesanan {user} selesai senilai Rp{nominal}</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.changedone</code></td>
-                <td>Ubah template selesai</td>
-                <td><code>.changedone</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.delsetdone</code></td>
-                <td>Reset template selesai</td>
-                <td><code>.delsetdone</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.proses</code></td>
-                <td>Kelola/kirim template proses</td>
-                <td><code>.p (reply chat order)</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.done</code></td>
-                <td>Kelola/kirim template selesai</td>
-                <td><code>.d 50000 (reply chat order)</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.setopen</code></td>
-                <td>Pilih template pesan open</td>
-                <td><code>.setopen</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.setclose</code></td>
-                <td>Pilih template pesan close</td>
-                <td><code>.setclose</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.setlisttemplate</code></td>
-                <td>Pilih template katalog</td>
-                <td><code>.setlisttemplate</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="semua" data-plan="trial">
-                <td><code>.previewlist</code></td>
-                <td>Preview katalog</td>
-                <td><code>.previewlist</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="premium">
-                <td><code>.setlistheader</code></td>
-                <td>Atur header katalog manual</td>
-                <td><code>.setlistheader 🛒 TOKO DIGITAL</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="premium">
-                <td><code>.setlistfooter</code></td>
-                <td>Atur footer katalog manual</td>
-                <td><code>.setlistfooter Ketik nama produk untuk pesan</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="trial">
-                <td><code>.resetlisttemplate</code></td>
-                <td>Reset template katalog</td>
-                <td><code>.resetlisttemplate</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="premium">
-                <td><code>.exportlist</code></td>
-                <td>Export katalog ke Excel/Teks</td>
-                <td><code>.exportlist</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="product" data-access="admin" data-plan="premium">
-                <td><code>.importlist</code></td>
-                <td>Import katalog dari file</td>
-                <td><code>.importlist</code></td>
-                <td><span class="badge badge-default">Katalog Produk</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.welcome</code></td>
-                <td>Kelola welcome (on/off/preview)</td>
-                <td><code>.welcome</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.goodbye</code></td>
-                <td>Kelola goodbye (on/off/preview)</td>
-                <td><code>.goodbye</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.setwelcome</code></td>
-                <td>Pilih/atur template welcome</td>
-                <td><code>.setwelcome Selamat datang di {group}, {user}!</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.changewelcome</code></td>
-                <td>Ubah template welcome</td>
-                <td><code>.changewelcome</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.delsetwelcome</code></td>
-                <td>Reset template welcome</td>
-                <td><code>.delsetwelcome</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.setleft</code></td>
-                <td>Pilih/atur template goodbye</td>
-                <td><code>.setleft Selamat tinggal {user}!</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.changeleft</code></td>
-                <td>Ubah template goodbye</td>
-                <td><code>.changeleft</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="welcome" data-access="admin" data-plan="trial">
-                <td><code>.delsetleft</code></td>
-                <td>Reset template goodbye</td>
-                <td><code>.delsetleft</code></td>
-                <td><span class="badge badge-default">Welcome / Goodbye</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.antiwame</code></td>
-                <td>Antiwame mode 1</td>
-                <td><code>.antiwame on</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.antiwame2</code></td>
-                <td>Antiwame mode 2</td>
-                <td><code>.antiwame2 on</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.antilink</code></td>
-                <td>Antilink mode 1</td>
-                <td><code>.antilink on</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.antilink2</code></td>
-                <td>Antilink mode 2</td>
-                <td><code>.antilink2 on</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.open</code></td>
-                <td>Buka grup</td>
-                <td><code>.open</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.close</code></td>
-                <td>Tutup grup</td>
-                <td><code>.close</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.hidetag</code></td>
-                <td>Tag semua anggota</td>
-                <td><code>.hidetag</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.add</code></td>
-                <td>Tambah anggota</td>
-                <td><code>.add</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.kick</code></td>
-                <td>Keluarkan anggota</td>
-                <td><code>.kick @anggota</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.promote</code></td>
-                <td>Jadikan admin</td>
-                <td><code>.promote @anggota</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.demote</code></td>
-                <td>Turunkan admin</td>
-                <td><code>.demote @anggota</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.linkgc</code></td>
-                <td>Ambil tautan grup</td>
-                <td><code>.linkgc</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.resetlinkgc</code></td>
-                <td>Reset tautan grup</td>
-                <td><code>.resetlinkgc</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.deletemsg</code></td>
-                <td>Hapus pesan (reply)</td>
-                <td><code>.deletemsg</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.revokelinkgc</code></td>
-                <td>Reset tautan grup</td>
-                <td><code>.revokelinkgc</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.addadmin</code></td>
-                <td>Jadikan admin</td>
-                <td><code>.addadmin</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.addblacklist</code></td>
-                <td>Tambah ke blacklist</td>
-                <td><code>.addblacklist 628123456789 Penipu transfer palsu</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.editblacklist</code></td>
-                <td>Edit blacklist</td>
-                <td><code>.editblacklist 628123456789 Update bukti transfer palsu</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.deleteblacklist</code></td>
-                <td>Hapus dari blacklist</td>
-                <td><code>.deleteblacklist 628123456789</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.viewblacklist</code></td>
-                <td>Lihat blacklist</td>
-                <td><code>.viewblacklist</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="moderation" data-access="admin" data-plan="trial">
-                <td><code>.blacklisthelp</code></td>
-                <td>Bantuan blacklist</td>
-                <td><code>.blacklisthelp</code></td>
-                <td><span class="badge badge-default">Moderasi Grup</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.autoopen</code></td>
-                <td>Buka otomatis on/off</td>
-                <td><code>.autoopen</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.autoopenset</code></td>
-                <td>Atur jam buka otomatis</td>
-                <td><code>.autoopenset 08:00</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.autoclose</code></td>
-                <td>Tutup otomatis on/off</td>
-                <td><code>.autoclose</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.autocloseset</code></td>
-                <td>Atur jam tutup otomatis</td>
-                <td><code>.autocloseset 21:00</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorder</code></td>
-                <td>Laporan order otomatis on/off</td>
-                <td><code>.dataorder</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataordernow</code></td>
-                <td>Laporan order hari ini (Excel)</td>
-                <td><code>.dataordernow</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorderlast</code></td>
-                <td>Laporan order kemarin (Excel)</td>
-                <td><code>.dataorderlast</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorderweek</code></td>
-                <td>Laporan order minggu ini (Excel)</td>
-                <td><code>.dataorderweek</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorderlastweek</code></td>
-                <td>Laporan order minggu lalu (Excel)</td>
-                <td><code>.dataorderlastweek</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataordermonth</code></td>
-                <td>Laporan order bulan ini (Excel)</td>
-                <td><code>.dataordermonth</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorderlastmonth</code></td>
-                <td>Laporan order bulan lalu (Excel)</td>
-                <td><code>.dataorderlastmonth</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.dataorderhelp</code></td>
-                <td>Bantuan data order</td>
-                <td><code>.dataorderhelp</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.setnominal</code></td>
-                <td>Koreksi nominal order terakhir</td>
-                <td><code>.setnominal 45000</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.setppgc</code></td>
-                <td>Ubah foto profil grup</td>
-                <td><code>.setppgc</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.setnamegc</code></td>
-                <td>Ubah nama grup</td>
-                <td><code>.setnamegc Toko Digital IDAIDO</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="premium">
-                <td><code>.setdesgc</code></td>
-                <td>Ubah deskripsi grup</td>
-                <td><code>.setdesgc Grup jualan resmi terverifikasi</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-admin" title="Terkunci pada paket trial">🔒 Berbayar</span></td>
-              </tr>
-              <tr data-category="settings" data-access="admin" data-plan="trial">
-                <td><code>.setbot</code></td>
-                <td>Simpan konfigurasi bot</td>
-                <td><code>.setbot</code></td>
-                <td><span class="badge badge-default">Pengaturan Bot</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="utility" data-access="semua" data-plan="trial">
-                <td><code>.afk</code></td>
-                <td>Aktifkan status AFK</td>
-                <td><code>.afk</code></td>
-                <td><span class="badge badge-default">Utilitas</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="utility" data-access="semua" data-plan="trial">
-                <td><code>.status</code></td>
-                <td>Cek status teknis bot</td>
-                <td><code>.status</code></td>
-                <td><span class="badge badge-default">Utilitas</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.p</code> <small style="color:var(--text-subtle);">(alias)</small></td>
-                <td>Proses pesanan (alias)</td>
-                <td><code>.p (reply chat order)</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="transaction" data-access="admin" data-plan="trial">
-                <td><code>.d</code> <small style="color:var(--text-subtle);">(alias)</small></td>
-                <td>Selesaikan pesanan (alias)</td>
-                <td><code>.d 50000 (reply chat order)</code></td>
-                <td><span class="badge badge-default">Transaksi</span></td>
-                <td><span class="badge badge-admin">Admin</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-              <tr data-category="utility" data-access="semua" data-plan="trial">
-                <td><code>.bot</code></td>
-                <td>Info bot</td>
-                <td><code>.bot</code></td>
-                <td><span class="badge badge-default">Utilitas</span></td>
-                <td><span class="badge badge-public">Semua</span></td>
-                <td><span class="badge badge-default">Trial & Berbayar</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="no-results hidden">
-              Tidak ada perintah yang cocok. Coba kata kunci lain, misalnya "laporan" atau "blacklist".
-            </div>
-          </div>
-
-          <!-- 4. Alur Transaksi Harian -->
-          <div class="card" id="alur-transaksi">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 4</span>
-            <h2>4. Alur Transaksi Harian di Grup</h2>
-            <p>Berikut alur standar transaksi pelanggan dan admin dari awal hingga tercatat:</p>
-            <ol style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
-              <li>Pelanggan melihat daftar barang dengan mengetik <code>.list</code>, lalu memilih nama produk (misalnya <code>netflix</code>).</li>
-              <li>Pelanggan melakukan pembayaran melalui rekening bank atau QRIS toko milikmu di luar bot.</li>
-              <li>Admin membalas pesan order pelanggan lalu mengirim perintah proses: <code>.p</code>. Bot mengirimkan notifikasi bahwa pesanan sedang dikerjakan.</li>
-              <li>Setelah pesanan selesai, admin membalas pesan pelanggan/bukti bayar lalu mengetik: <code>.d 50000</code>.</li>
-              <li>Pesanan selesai, pelanggan mendapat konfirmasi, dan omset senilai Rp50.000 otomatis tersimpan ke buku laporan kas.</li>
-            </ol>
-            <div class="pre-code">.p
-.d 50000</div>
-          </div>
-
-          <!-- 5. Laporan & Bukti Transfer -->
-          <div class="card" id="laporan-rekap">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 5</span>
-            <h2>5. Mencatat & Mengunduh Laporan Excel (OCR)</h2>
-            <p>Fitur laporan Excel tersedia penuh pada paket Berbayar:</p>
-            <ul style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem;">
-              <li><strong>Nominal Otomatis via Foto:</strong> Balas foto transfer pelanggan dengan perintah <code>.d</code> tanpa nominal. Bot akan membaca angka transfer dari foto, lalu meminta konfirmasi ya/tidak.</li>
-              <li><strong>Koreksi Nominal:</strong> Jika admin salah mengetik angka nominal order terakhir, perbaiki cepat menggunakan <code>.setnominal [angka_baru]</code>.</li>
-              <li><strong>Rekap Lengkap Excel:</strong> Unduh file <code>.xlsx</code> kapan saja untuk pembukuan tokomu:
-                <br>• Hari ini: <code>.dataordernow</code>
-                <br>• Kemarin: <code>.dataorderlast</code>
-                <br>• Minggu ini: <code>.dataorderweek</code>
-                <br>• Minggu lalu: <code>.dataorderlastweek</code>
-                <br>• Bulan ini: <code>.dataordermonth</code>
-                <br>• Bulan lalu: <code>.dataorderlastmonth</code>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 6. Blacklist Nomor -->
-          <div class="card" id="blacklist">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 6</span>
-            <h2>6. Perlindungan Blacklist yang Bisa Dibatalkan</h2>
-            <p>Amankan grup jualanmu dari pelaku penipuan atau pengirim bukti transfer palsu:</p>
-            <ul style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem;">
-              <li><strong>Tambah ke daftar hitam:</strong> <code>.addblacklist 628123456789 Bukti transfer editan</code></li>
-              <li><strong>Lihat daftar blacklist:</strong> <code>.viewblacklist</code></li>
-              <li><strong>Ubah catatan alasan:</strong> <code>.editblacklist 628123456789 Update bukti penipuan baru</code></li>
-              <li><strong>Batalkan / hapus blacklist:</strong> <code>.deleteblacklist 628123456789</code></li>
-              <li>Selama nomor terdaftar di blacklist, setiap pesannya di dalam grup akan dihapus otomatis dan pelakunya diberi peringatan keras.</li>
-            </ul>
-          </div>
-
-          <!-- 7. Jadwal Buka Tutup Otomatis -->
-          <div class="card" id="jadwal-toko">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 7</span>
-            <h2>7. Jadwal Buka Tutup & Rekap Otomatis</h2>
-            <p>Fitur paket Berbayar untuk menjaga ketertiban jam kerja admin:</p>
-            <ul style="padding-left: 1.25rem; margin-bottom: 1rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem;">
-              <li>Atur jam buka grup: <code>.autoopenset 08:00</code> (format jam:menit WIB).</li>
-              <li>Atur jam tutup grup: <code>.autocloseset 21:00</code>.</li>
-              <li>Aktifkan laporan otomatis saat tutup toko: <code>.dataorder on</code>. Bot akan mengirimkan ringkasan total omset dan jumlah transaksi hari itu tepat saat grup dikunci.</li>
-              <li>Pastikan nomor bot berstatus admin grup agar dapat mengubah setelan izin kirim pesan grup.</li>
-            </ul>
-          </div>
-
-          <!-- 8. Kendala Umum (Troubleshooting) -->
-          <div class="card" id="troubleshooting">
-            <span class="badge badge-default" style="align-self: flex-start; margin-bottom: 0.5rem;">Bagian 8</span>
-            <h2>8. Kendala Umum & Solusi Cepat</h2>
-            <p>Jika mengalami kendala saat penggunaan bot di dalam grup, ikuti petunjuk verifikasi berikut:</p>
-
-            <div class="table-wrapper">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Kendala yang Dialami</th>
-                    <th>Penyebab & Solusi Tindakan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Bot tidak membalas pesan di grup</strong></td>
-                    <td>Pastikan masa sewa grup belum habis (ketik <code>.ceksewa</code>). Periksa juga apakah perintah yang diketik memerlukan hak akses admin atau owner. Jika grup berpaket trial, periksa apakah kuota 300 balasan hari ini sudah habis.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Muncul peringatan bot harus jadi admin</strong></td>
-                    <td>Buka Info Grup WhatsApp, pilih Setelan Grup / Anggota, lalu angkat nomor bot menjadi Admin Grup.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Fitur moderasi link tidak menghapus pesan</strong></td>
-                    <td>Pastikan fiturnya sudah diaktifkan dengan <code>.antilink on</code> atau <code>.antiwame on</code> dan bot telah memiliki status admin grup.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Katalog produk kosong saat diketik <code>.list</code></strong></td>
-                    <td>Katalog grup baru belum memiliki item produk. Tambahkan produk awal menggunakan perintah <code>.addlist [nama] | [deskripsi]</code>.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Import katalog gagal</strong></td>
-                    <td>Pastikan format berkas valid: file Excel 2 kolom (Kolom A: Nama produk, Kolom B: Deskripsi) atau file teks dengan pemisah garis tegak (<code>|</code>). Fitur ini khusus paket Berbayar.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Nominal transaksi tidak tercatat di laporan</strong></td>
-                    <td>Pastikan selalu menyertakan nominal saat mengetik perintah selesai (contoh: <code>.d 50000</code>), atau balas foto bukti transfer lalu pilih konfirmasi nominal yang terbaca.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <p style="margin-top: 1rem; font-size: 0.9rem;">
-              Masih membutuhkan bantuan teknis? <a href="index.html#kontak" class="btn-whatsapp" data-wa-text="Halo Owner, saya mengalami kendala pada bot IDAIDO. Mohon bantuannya.">Hubungi WhatsApp Owner langsung</a>.
-            </p>
-          </div>
+        </nav>
+      </div>
+    </header>
+  
+  <main>
+    <section>
+      <div class="container">
+        <h1>Dokumentasi</h1>
+        <p>Panduan lengkap untuk menggunakan IDAIDO BOT dengan optimal</p>
+        
+        <div class="doc-nav">
+          <h3>Navigasi Dokumentasi</h3>
+          <ul>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#setup">Setup & Konfigurasi</a></li>
+            <li><a href="#commands">Daftar Perintah</a></li>
+            <li><a href="panduan.html#faq">FAQ Lengkap</a></li>
+            <li><a href="panduan.html#troubleshooting">Troubleshooting</a></li>
+          </ul>
         </div>
+
+        <section id="quickstart">
+          <h2>Quick Start</h2>
+          <div><br>## Quickstart untuk Admin Grup<br><br>Sebelum mulai, pastikan:<br>1. <strong>Bot sudah di-invite ke grup</strong> oleh owner<br>2. <strong>Anda adalah admin grup</strong> (atau buat grup baru dengan bot)<br>3. <strong>Bot adalah admin</strong> (berikan akses admin ke bot)<br><br>### Langkah 1: Jadikan Bot Admin<br>Kirim perintah ke grup:<br>```<br>.setadmin on<br>```<br><br>### Langkah 2: Setup Katalog<br>Buat katalog produk:<br>```<br>.addlist Netflix | Langganan Netflix 30 hari | 50000<br>.addlist Spotify | Langganan Spotify 1 bulan | 30000<br>```<br><br>Lihat katalog:<br>```<br>.list<br>```<br><br>### Langkah 3: Setup Template Pesan<br>Buat template untuk status pesanan:<br>```<br>.tempproses Template: Pesanan sedang kami proses, mohon ditunggu ya 🙏<br>.tempdone Template: Pesanan selesai! Akun sudah dikirim 🎉<br>```<br><br>### Langkah 4: Setup Jadwal<br>Setup jam buka dan tutup otomatis:<br>```<br>.autoopen on<br>.autoopenset 08:00<br>.autoclose on<br>.autocloseset 22:00<br>```<br><br>### Langkah 5: Aktifkan Moderasi<br>Setup antilink dan blacklist:<br>```<br>.antilink on<br>.addblacklist 62812xxxx Nama Penipu<br>```<br><br>Selesai! Bot siap beroperasi.<br>    </div>
+        </section>
+
+        <section id="setup">
+          <h2>Alur Kerja Harian</h2>
+          <div><br>## Alur Kerja Harian<br><br>### Pagi (Saat Buka Grup)<br>1. Bot otomatis buka grup (jika jadwal aktif)<br>2. Kirim sapaan ke group dengan `.announce Pagi! Grup sudah dibuka`<br><br>### Saat Ada Pesanan<br>1. Pelanggan chat atau kirim ke grup<br>2. Anda balas chat pelanggan<br>3. Kirim perintah `.proses` (balas chat pelanggan)<br>4. Template otomatis terkirim<br><br>### Saat Pesanan Selesai<br>1. Kirim akun/barang ke pelanggan<br>2. Kirim perintah `.done 50000` (balas chat dengan nominal)<br>3. Bot otomatis catat ke laporan<br><br>### Malam (Saat Tutup Grup)<br>1. Bot otomatis tutup grup (jika jadwal aktif)<br>2. Laporan otomatis di-generate ke Excel dengan `.dataordernow`<br><br>### Akhir Hari<br>1. Ekspor laporan dengan `.dataorderweek` atau `.dataordermonth`<br>2. Rekap omset dan pesanan<br>    </div>
+        </section>
+
+        <section id="commands">
+          <h2>Daftar Perintah</h2>
+          <p>Berikut adalah perintah yang tersedia di IDAIDO BOT:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Perintah</th>
+                  <th>Fungsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td><code>.list</code></td>
+                    <td>Lihat katalog produk</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.addlist netflix | Langganan Netflix 30 hari</code></td>
+                    <td>Tambah produk ke katalog</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.proses</code></td>
+                    <td>Tandai pesanan sedang diproses (balas chat pelanggan)</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.done 50000</code></td>
+                    <td>Tandai pesanan selesai + catat nominal (balas chat pelanggan)</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.dataordernow</code></td>
+                    <td>Laporan order hari ini ke Excel</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.addblacklist 62812xxxx Nama</code></td>
+                    <td>Tambah nomor ke blacklist</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.autoopen on</code></td>
+                    <td>Aktifkan buka grup otomatis</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.autoopenset 08:00</code></td>
+                    <td>Set jam buka otomatis</td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>IDAIDO BOT</h4>
-          <p>Bot WhatsApp untuk membantu mengelola grup jualan: katalog produk, pesanan, moderasi grup, dan laporan pendapatan.</p>
+  
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>IDAIDO BOT</h3>
+            <p>Bot WhatsApp terpercaya untuk jualan online</p>
+          </div>
+          <div class="footer-section">
+            <h3>Navigasi</h3>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="command.html">Daftar Perintah</a></li>
+              <li><a href="panduan.html">Panduan</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Kontak</h3>
+            <ul>
+              <li><a href="https://wa.me/62812" target="_blank" rel="noopener">WhatsApp</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <p style="font-size: 0.875rem;">IDAIDO BOT adalah produk tidak resmi yang menggunakan library WhatsApp tidak resmi. Kami tidak berafiliasi dengan WhatsApp Inc. Penggunaan bot ini sepenuhnya tanggung jawab Anda. Kami tidak bertanggung jawab atas kehilangan data, suspend akun, atau dampak lainnya dari penggunaan bot.</p>
+          </div>
         </div>
-
-        <div class="footer-col">
-          <h4>Navigasi</h4>
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="index.html#demo">Simulasi Demo</a></li>
-            <li><a href="index.html#harga">Paket Sewa</a></li>
-            <li><a href="dokumentasi.html">Dokumentasi</a></li>
-            <li><a href="changelog.html">Catatan Rilis</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Bantuan & Legal</h4>
-          <ul>
-            <li><a href="policy.html#syarat">Syarat & Ketentuan</a></li>
-            <li><a href="policy.html#privasi">Kebijakan Privasi</a></li>
-            <li><a href="index.html#kontak" class="btn-whatsapp" data-wa-text="Halo Owner, saya ingin bertanya tentang bot IDAIDO.">Hubungi WhatsApp Owner</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 IDAIDO BOT. All rights reserved.</p>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 IDAIDO BOT. Seluruh hak cipta dilindungi.</div>
-        <div>Bot ini memakai library pihak ketiga tidak resmi dan bukan produk resmi WhatsApp Inc.</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp CTA -->
-  <a href="index.html#kontak" class="floating-whatsapp btn-whatsapp" data-wa-text="Halo Owner IDAIDO BOT, saya butuh bantuan panduan bot.">
-    <span>💬 Butuh bantuan? Chat owner</span>
-  </a>
-
+    </footer>
+  
   <script src="assets/js/app.js"></script>
 </body>
 </html>
