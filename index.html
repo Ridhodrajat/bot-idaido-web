@@ -1,492 +1,357 @@
 <!DOCTYPE html>
-<html class="scroll-smooth dark" lang="id">
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IDAIDO BOT - Bot WhatsApp otomatis untuk rental & toko digital. Kelola katalog, terima pembayaran QRIS, kirim akun, export laporan.">
-  <title>IDAIDO BOT - Bot WhatsApp Otomatis Rental & Toko Digital</title>
-  
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  
-  <!-- Inter Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#005c55",
-            "primary-container": "#0f766e",
-            "primary-fixed": "#9cf2e8",
-            "on-primary": "#ffffff",
-            "on-primary-container": "#a3faef",
-            "surface": "#f8f9ff",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#eff4ff",
-            "surface-container": "#e6eeff",
-            "surface-container-high": "#dce9ff",
-            "on-surface": "#0d1c2e",
-            "on-surface-variant": "#3e4947",
-            "outline": "#6e7977",
-            "outline-variant": "#bdc9c6",
-          },
-          fontFamily: {
-            body: ["Inter", "sans-serif"],
-            headline: ["Inter", "sans-serif"],
-          },
-        }
-      }
-    };
-  </script>
-  
-  <style>
-    @layer base {
-      html, body { margin: 0; padding: 0; }
-      body { overscroll-behavior: none; }
-    }
-    ::-webkit-scrollbar { display: none; }
-    .font-body-md { font-size: 14px; font-weight: 400; }
-    .font-headline-sm { font-size: 16px; font-weight: 600; }
-    .font-label-sm { font-size: 11px; font-weight: 600; }
-    .font-display-lg { font-size: 32px; font-weight: 700; line-height: 1.15; }
-  </style>
-
-  <script>
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      const icon = document.getElementById('theme-toggle-icon');
-      icon.textContent = isDark ? 'dark_mode' : 'light_mode';
-    }
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IDAIDO BOT — Bot WhatsApp Otomatis untuk Rental &amp; Toko Digital</title>
+<meta name="description" content="Kelola katalog, terima pembayaran QRIS via OCR, kirim akun rental, dan rekap laporan Excel otomatis tanpa admin standby 24 jam.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}</script>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--inset:#f1f5f9;--line:#e2e8f0;--line2:#cbd5e1;--ink:#0f172a;--mut:#475569;--pri:#0f766e;--prih:#115e59;--acc:#0f766e;--mbg:#f0fdfa;--mbd:#ccfbf1;--in:#fff;--out:#f0fdf4;--outb:#bbf7d0;--cta:#0f172a}
+[data-theme=dark]{--bg:#0b0f19;--card:#111827;--inset:#1e293b;--line:#1e293b;--line2:#334155;--ink:#f1f5f9;--mut:#94a3b8;--acc:#2dd4bf;--mbg:#0d2a27;--mbd:#134e4a;--in:#1e293b;--out:#0f2a22;--outb:#14532d;--cta:#111827}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:400 14px/20px Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-feature-settings:"tnum"}
+a{color:inherit;text-decoration:none}
+.ms{font-family:'Material Symbols Outlined';font-size:20px;line-height:1;font-weight:400;font-style:normal;display:inline-block;vertical-align:middle}
+.w{max-width:1280px;margin:0 auto;padding:0 16px}
+@media(min-width:1024px){.w{padding:0 32px}}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;transition:border-color .15s}
+.card:hover{border-color:var(--pri)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 20px;border-radius:8px;font:500 14px Inter,sans-serif;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s}
+.btn.p{background:var(--pri);color:#fff}.btn.p:hover{background:var(--prih)}.btn.p:active{background:#134e4a}
+.btn.o{background:var(--card);border-color:var(--line);color:var(--ink)}.btn.o:hover{border-color:var(--line2);background:var(--inset)}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;font:600 11px/14px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:var(--mbg);border:1px solid var(--mbd);color:var(--acc)}
+.eyebrow{font:600 11px/14px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--acc)}
+h1,h2,h3,h4{color:var(--ink)}
+h2{font:600 24px/32px Inter,sans-serif;letter-spacing:-.02em;margin:8px 0}
+h3{font:600 16px/24px Inter,sans-serif;letter-spacing:-.01em}
+section{padding:64px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 40px}
+.grid{display:grid;gap:16px}
+@media(min-width:768px){.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.g4{grid-template-columns:repeat(4,1fr)}}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--card) 95%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .w{height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.01em}
+.mark{width:32px;height:32px;border-radius:8px;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:700}
+nav{display:none;gap:24px}nav a{font-weight:500;color:var(--mut)}nav a:hover{color:var(--ink)}
+@media(min-width:768px){nav{display:flex}}
+.hr{display:flex;gap:8px;align-items:center}
+.hr .btn{height:36px;padding:0 14px}
+.ic{width:36px;height:36px;padding:0}
+/* top bar */
+.bar{margin-top:56px;background:var(--inset);border-bottom:1px solid var(--line);font:500 11px/14px Inter,sans-serif;color:var(--mut)}
+.bar .w{display:flex;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);margin-right:6px;animation:pl 2s infinite}
+@keyframes pl{50%{opacity:.35}}
+/* hero */
+.hero{display:grid;gap:48px;align-items:center;padding:48px 0 64px}
+@media(min-width:1024px){.hero{grid-template-columns:7fr 5fr}}
+h1{font:700 26px/32px Inter,sans-serif;letter-spacing:-.02em;margin:16px 0}
+@media(min-width:768px){h1{font-size:32px;line-height:40px;letter-spacing:-.025em}}
+.lead{font-size:16px;line-height:24px;color:var(--mut);max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-top:24px;border-top:1px solid var(--line)}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div{padding:12px}.stats b{display:block;font-size:16px;line-height:24px;font-weight:700}.stats span{font:600 11px Inter,sans-serif;color:var(--mut)}
+/* chat sim */
+.wa{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.wh{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.wh .mark{width:36px;height:36px;border-radius:50%}
+.wh small{display:block;font-size:12px;color:var(--acc)}
+.tabs{display:flex;gap:6px;padding:8px 12px;overflow-x:auto;background:var(--inset);border-bottom:1px solid var(--line)}
+.tabs button{white-space:nowrap;padding:4px 10px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--mut);font:500 12px Inter,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.chat{padding:16px;min-height:430px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.cap{align-self:center;font:600 11px Inter,sans-serif;color:var(--mut);background:var(--inset);border:1px solid var(--line);border-radius:4px;padding:2px 8px}
+.msg{max-width:92%;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--in);font-size:13px;line-height:18px;white-space:pre-wrap;word-break:break-word}
+.msg.bot,.msg.adm{background:var(--out);border-color:var(--outb);align-self:flex-end}
+.msg.bot{font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.who{display:block;font:600 10px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
+.msg i{display:block;text-align:right;font:normal 10px Inter,sans-serif;color:var(--mut);margin-top:2px}
+.inp{display:flex;align-items:center;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--inset)}
+.inp div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--mut);font-size:13px}
+/* cards */
+.pad{padding:16px;display:flex;flex-direction:column;height:100%}
+.pad p{color:var(--mut);margin-top:6px}
+.pad p code,.pad code{background:var(--inset);border:1px solid var(--line);border-radius:4px;padding:0 4px;font:500 12px ui-monospace,Menlo,monospace;color:var(--ink)}
+.ben{margin-top:auto;padding-top:12px;font-size:13px;line-height:18px;color:var(--mut)}
+.ben{border-top:1px solid var(--line);margin-top:16px}
+.ben b{color:var(--acc);font-weight:600}
+.ico{width:40px;height:40px;border-radius:8px;display:grid;place-items:center;background:var(--mbg);border:1px solid var(--mbd);color:var(--acc);margin-bottom:12px}
+.note{margin-top:16px;text-align:center;padding:12px;background:var(--inset);border:1px solid var(--line);border-radius:8px;font-weight:600}
+/* pricing */
+.trial{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px;margin-bottom:24px;background:var(--mbg);border:1px solid var(--mbd);border-radius:12px}
+.trial>div{display:flex;gap:12px;align-items:center}.trial p{color:var(--mut)}
+.price{max-width:820px;margin:0 auto}
+.pc{padding:24px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pc.hot{border:2px solid var(--pri)}
+.pc .badge{position:absolute;top:-12px;left:24px;background:var(--pri);color:#fff;border-color:var(--pri)}
+.amt{font:700 32px/40px Inter,sans-serif;letter-spacing:-.025em}
+.amt span{font:400 14px Inter,sans-serif;color:var(--mut);letter-spacing:0}
+.pc ul{list-style:none;padding:0;display:grid;gap:10px;flex:1}
+.pc li{display:flex;gap:8px}.pc li .ms{color:var(--acc);font-size:18px}
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px}
+details[open],details:hover{border-color:var(--line2)}
+summary{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;font-weight:600;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] summary .ms{transform:rotate(180deg)}
+details div{padding:0 16px 16px;color:var(--mut)}
+/* final cta */
+.fin{background:var(--cta);color:#f1f5f9;border:1px solid #334155;border-radius:12px;padding:48px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.fin h2{color:#fff;font-size:26px;margin:0;max-width:560px}.fin p{color:#94a3b8;max-width:480px}
+.fin .badge{background:#0d2a27;border-color:#134e4a;color:#2dd4bf}
+.fin .sm{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;font-size:12px;color:#94a3b8}
+.fin .sm .ms{font-size:16px;color:#2dd4bf;margin-right:4px}
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 24px}
+.fg{display:grid;gap:32px}@media(min-width:768px){.fg{grid-template-columns:2fr 1fr 1fr}}
+footer h4{font:600 13px Inter,sans-serif;margin-bottom:12px}footer ul{list-style:none;padding:0;display:grid;gap:8px}
+footer a:hover{color:var(--acc)}
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;gap:8px;align-items:center;height:44px;padding:0 16px;border-radius:8px;background:var(--pri);color:#fff;font-weight:500}
+.fab:hover{background:var(--prih)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dot{animation:none}}
+</style>
 </head>
+<body>
 
-<body class="bg-surface dark:bg-[#0b0f19] font-body-md text-on-surface dark:text-slate-100 antialiased transition-colors duration-200">
-  
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/95 dark:bg-[#111827]/95 backdrop-blur-md border-b border-surface-container-high dark:border-slate-800 transition-colors duration-200">
-    <div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">ID</div>
-        <div class="flex items-center gap-1">
-          <span class="font-headline-sm text-on-surface dark:text-white font-bold">IDAIDO BOT</span>
-          <span class="font-label-sm bg-surface-container-low dark:bg-slate-800 text-primary-container dark:text-teal-400 px-2 py-0.5 rounded-full border border-outline-variant dark:border-slate-700 font-semibold">v1.1.0</span>
-        </div>
+<header><div class="w">
+  <a href="#" class="logo"><span class="mark">I</span>IDAIDO BOT <span class="badge">v1.1.0</span></a>
+  <nav><a href="#fitur">Fitur</a><a href="#alur-kerja">Alur Kerja</a><a href="#harga">Harga</a><a href="#faq">FAQ</a></nav>
+  <div class="hr">
+    <button class="btn o ic" id="theme" aria-label="Ganti mode terang/gelap"><span class="ms">dark_mode</span></button>
+    <a class="btn p" data-wa="Halo Admin IDAIDO BOT, saya tertarik untuk mencoba trial bot WhatsApp" href="#harga">Coba Gratis</a>
+  </div>
+</div></header>
+
+<div class="bar"><div class="w">
+  <span style="color:var(--acc)"><span class="dot"></span>Gateway Engine: v1.1.0 Online</span>
+  <span>Rata-rata Respon: &lt; 1.4s</span><span>Akurasi OCR: 99.8%</span>
+</div></div>
+
+<main>
+<div class="w">
+  <div class="hero">
+    <div>
+      <span class="badge"><span class="dot" style="margin:0"></span>Update v1.1.0 Aktif · 100% Otomatis</span>
+      <h1>Bot WhatsApp Otomatis untuk Rental &amp; Toko Digital</h1>
+      <p class="lead">Kelola katalog, terima pembayaran QRIS otomatis via OCR, kirim akun rental, hingga rekap laporan Excel tanpa perlu admin standby 24 jam.</p>
+      <div class="cta">
+        <a class="btn p" href="#harga">Mulai Trial Gratis (3 Hari) <span class="ms">arrow_forward</span></a>
+        <a class="btn o" href="#fitur"><span class="ms" style="color:var(--acc)">terminal</span>Lihat 80+ Perintah</a>
       </div>
-
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="#fitur" class="text-primary dark:text-teal-400 font-semibold text-sm transition-colors">Fitur</a>
-        <a href="#alur-kerja" class="text-on-surface-variant dark:text-slate-300 hover:text-on-surface dark:hover:text-white transition-colors text-sm">Alur Kerja</a>
-        <a href="#harga" class="text-on-surface-variant dark:text-slate-300 hover:text-on-surface dark:hover:text-white transition-colors text-sm">Harga</a>
-        <a href="#faq" class="text-on-surface-variant dark:text-slate-300 hover:text-on-surface dark:hover:text-white transition-colors text-sm">FAQ</a>
-        <a href="dokumentasi.html" class="text-on-surface-variant dark:text-slate-300 hover:text-on-surface dark:hover:text-white transition-colors text-sm">Dokumentasi</a>
-      </nav>
-
-      <!-- Right Actions -->
-      <div class="flex items-center gap-3">
-        <button onclick="toggleTheme()" class="p-2 rounded-lg border border-outline-variant dark:border-slate-700 bg-surface-container-lowest dark:bg-slate-800 text-on-surface dark:text-amber-300 hover:bg-surface-container-low dark:hover:bg-slate-700 transition-colors">
-          <span class="material-symbols-outlined text-[20px]" id="theme-toggle-icon">light_mode</span>
-        </button>
-        <a href="#harga" class="hidden sm:inline-flex items-center justify-center h-9 px-4 rounded-lg border border-outline-variant dark:border-slate-700 bg-surface-container-lowest dark:bg-slate-800 text-on-surface dark:text-slate-200 font-label-sm font-medium hover:bg-surface-container-low dark:hover:bg-slate-700 transition-colors text-sm">Dokumentasi</a>
-        <a href="#harga" class="inline-flex items-center justify-center h-9 px-6 rounded-lg bg-primary-container text-on-primary font-label-sm font-semibold hover:bg-primary transition-colors text-sm">Coba Gratis</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="w-full pt-16 bg-surface dark:bg-[#0b0f19] transition-colors duration-200">
-    
-    <!-- Status Bar -->
-    <div class="w-full bg-surface-container-low dark:bg-[#0f172a] py-2 border-b border-surface-container-high dark:border-slate-800 transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-on-surface-variant dark:text-slate-400 text-xs">
-        <div class="flex items-center gap-3">
-          <span class="flex items-center gap-1.5 text-primary dark:text-teal-400 font-medium">
-            <span class="inline-block w-2 h-2 rounded-full bg-primary dark:bg-teal-400 animate-pulse"></span>
-            Bot Online 24/7
-          </span>
-          <span class="text-outline-variant dark:text-slate-700">•</span>
-          <span>Respon &lt; 2 detik</span>
-          <span class="text-outline-variant dark:text-slate-700">•</span>
-          <span>Uptime 99.9%</span>
-        </div>
-        <a href="#faq" class="hover:text-primary dark:hover:text-teal-400 transition-colors">Bantuan Teknis</a>
-      </div>
+      <div class="stats" id="stats"></div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="w-full py-16 bg-surface dark:bg-[#0b0f19] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <!-- Left Column -->
-          <div class="lg:col-span-7 flex flex-col items-start gap-6">
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container dark:bg-slate-800/80 border border-surface-container-high dark:border-slate-700">
-              <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary dark:bg-teal-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary dark:bg-teal-400"></span>
-              </span>
-              <span class="font-label-sm text-on-surface dark:text-slate-200 font-semibold">Update v1.1.0 Aktif • 100% Otomatis</span>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="font-display-lg text-on-surface dark:text-white text-slate-900">
-              Bot WhatsApp Otomatis untuk Rental &amp; Toko Digital
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="text-base text-on-surface-variant dark:text-slate-300 max-w-xl leading-relaxed">
-              Kelola katalog, terima pembayaran QRIS otomatis via OCR, kirim akun rental, hingga rekap laporan Excel tanpa perlu admin standby 24 jam.
-            </p>
-
-            <!-- CTAs -->
-            <div class="flex flex-wrap items-center gap-3 pt-2">
-              <a href="#harga" class="inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary text-on-primary font-label-sm font-semibold px-6 py-3 rounded-lg transition-all">
-                <span>Mulai Trial Gratis (7 Hari)</span>
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </a>
-              <a href="#fitur" class="inline-flex items-center justify-center gap-2 bg-surface-container-lowest dark:bg-slate-800 hover:bg-surface-container-low dark:hover:bg-slate-700 text-on-surface dark:text-slate-200 font-label-sm font-medium px-6 py-3 rounded-lg border border-outline-variant dark:border-slate-700 transition-colors">
-                <span class="material-symbols-outlined text-primary dark:text-teal-400 text-[18px]">terminal</span>
-                <span>Lihat 82+ Perintah</span>
-              </a>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 mt-6 border-t border-surface-container-high dark:border-slate-800">
-              <div class="p-3 rounded-lg bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700/80">
-                <div class="font-headline-sm text-on-surface dark:text-white font-bold">82+ Perintah</div>
-                <div class="font-label-sm text-on-surface-variant dark:text-slate-400 mt-0.5">Modular & grup</div>
-              </div>
-              <div class="p-3 rounded-lg bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700/80">
-                <div class="font-headline-sm text-on-surface dark:text-white font-bold">100% Otomatis</div>
-                <div class="font-label-sm text-on-surface-variant dark:text-slate-400 mt-0.5">Respon &lt; 2 detik</div>
-              </div>
-              <div class="p-3 rounded-lg bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700/80">
-                <div class="font-headline-sm text-on-surface dark:text-white font-bold">OCR Scanner</div>
-                <div class="font-label-sm text-on-surface-variant dark:text-slate-400 mt-0.5">Validasi QRIS</div>
-              </div>
-              <div class="p-3 rounded-lg bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700/80">
-                <div class="font-headline-sm text-on-surface dark:text-white font-bold">Rekap Excel</div>
-                <div class="font-label-sm text-on-surface-variant dark:text-slate-400 mt-0.5">Export .xlsx instan</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Chat Mockup -->
-          <div class="lg:col-span-5 relative">
-            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-fixed to-slate-400 dark:from-teal-900/40 dark:to-emerald-950/40 rounded-2xl blur-lg opacity-40 -z-10"></div>
-            <div class="wa-dark bg-[#0b141a] border border-slate-700/70 rounded-2xl shadow-xl overflow-hidden flex flex-col">
-              <!-- WA Header -->
-              <div class="bg-[#1f2c34] px-4 py-3 flex items-center justify-between text-white border-b border-slate-700/70">
-                <div class="flex items-center gap-3">
-                  <div class="relative">
-                    <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold">ID</div>
-                    <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#1f2c34]"></span>
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="font-headline-sm font-semibold text-white">IDAIDO BOT Store</span>
-                      <span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
-                    </div>
-                    <p class="text-[11px] text-slate-300">Online • Siap Respon</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Chat Content -->
-              <div class="p-4 space-y-3 bg-[#0b141a] min-h-[380px] text-slate-100 flex flex-col justify-start">
-                <!-- Bot Message -->
-                <div class="flex flex-col items-start">
-                  <span class="text-[10px] text-slate-400 font-semibold mb-1">Bot IDAIDO</span>
-                  <div class="max-w-[90%] bg-[#1f2c34] border border-slate-700 text-slate-100 rounded-lg rounded-tl-none p-3 space-y-1.5 font-mono text-[12px] leading-relaxed">
-                    <p class="text-emerald-300 font-semibold">Halo! Selamat datang di IDAIDO BOT 🚀</p>
-                    <p class="text-slate-300 text-[11px]">Bot otomatis untuk rental dan toko digital Anda</p>
-                    <div class="text-[11px] text-slate-300 border-t border-slate-700/80 pt-1">
-                      <div>⏰ Buka 24/7</div>
-                      <div>📦 Ketik nama produk untuk melihat katalog</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- User Message -->
-                <div class="flex flex-col items-end mt-2">
-                  <span class="text-[10px] text-teal-300 font-semibold mb-1">Anda</span>
-                  <div class="max-w-[75%] bg-[#005c4b] border border-emerald-600/30 text-white rounded-lg rounded-tr-none px-3 py-1.5 font-mono text-[13px] font-semibold">
-                    .list
-                  </div>
-                </div>
-
-                <!-- Bot Response -->
-                <div class="flex flex-col items-start mt-2">
-                  <span class="text-[10px] text-slate-400 font-semibold mb-1">Bot IDAIDO</span>
-                  <div class="max-w-[90%] bg-[#1f2c34] border border-slate-700 text-slate-100 rounded-lg rounded-tl-none p-3 space-y-1 font-mono text-[11px]">
-                    <div class="text-amber-300 font-bold">📦 Katalog Produk</div>
-                    <div class="text-slate-300">1. ChatGPT Plus - Rp 25.000</div>
-                    <div class="text-slate-300">2. Claude Pro - Rp 20.000</div>
-                    <div class="text-slate-300">3. Perplexity Pro - Rp 15.000</div>
-                    <p class="text-amber-200 text-[10px] mt-1">💳 Ketik 'payment' untuk pembayaran</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section id="fitur" class="w-full py-20 bg-surface-container-low dark:bg-slate-950 transition-colors duration-200 border-t border-surface-container-high dark:border-slate-800">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-on-surface dark:text-white mb-4">Fitur Unggulan</h2>
-          <p class="text-base text-on-surface-variant dark:text-slate-300 max-w-2xl mx-auto">Semua yang Anda butuhkan untuk mengelola toko digital otomatis 24/7</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Feature Card 1 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">📦</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Katalog Otomatis</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Kelola produk, harga, stok dengan mudah via perintah sederhana</p>
-          </div>
-
-          <!-- Feature Card 2 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">💳</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">QRIS Auto-Scan</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Terima pembayaran otomatis dengan validasi OCR pintar</p>
-          </div>
-
-          <!-- Feature Card 3 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">📊</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Laporan Excel</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Export data transaksi ke Excel dengan sekali perintah</p>
-          </div>
-
-          <!-- Feature Card 4 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">🔐</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Moderasi Grup</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Antilink, blacklist otomatis, kontrol grup tanpa henti</p>
-          </div>
-
-          <!-- Feature Card 5 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">⏰</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Jadwal Otomatis</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Buka/tutup grup, kirim notifikasi sesuai jam operasional</p>
-          </div>
-
-          <!-- Feature Card 6 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg hover:border-primary dark:hover:border-teal-400 transition-colors">
-            <div class="text-3xl mb-3">👥</div>
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Multi-Grup</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400">Jalankan di banyak grup sekaligus dengan satu bot</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section id="harga" class="w-full py-20 bg-surface dark:bg-[#0b0f19] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-on-surface dark:text-white mb-4">Harga Sewa</h2>
-          <p class="text-base text-on-surface-variant dark:text-slate-300">Transparan, tanpa biaya tersembunyi</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Pricing Card 1 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg">
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Starter</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400 mb-4">7 Hari Trial</p>
-            <div class="text-2xl font-bold text-on-surface dark:text-white mb-4">Gratis</div>
-            <ul class="space-y-2 text-sm text-on-surface-variant dark:text-slate-300 mb-6">
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                82+ Perintah
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                Multi-Grup (5 grup)
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                Katalog otomatis
-              </li>
-            </ul>
-            <a href="https://wa.me/628950214771?text=Halo%20saya%20mau%20coba%20IDAIDO%20BOT%20starter" target="_blank" rel="noopener" class="block text-center py-2 rounded-lg bg-surface-container-low dark:bg-slate-800 text-on-surface dark:text-slate-200 font-semibold hover:bg-surface-container dark:hover:bg-slate-700 transition-colors text-sm">Mulai Trial</a>
-          </div>
-
-          <!-- Pricing Card 2 (Popular) -->
-          <div class="p-6 bg-primary-container text-on-primary rounded-lg relative md:scale-105 border-2 border-primary">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-3 py-1 rounded-full text-xs font-semibold">Paling Populer</div>
-            <h3 class="font-headline-sm font-bold mb-2 text-lg">Professional</h3>
-            <p class="text-sm opacity-90 mb-4">30 Hari</p>
-            <div class="text-2xl font-bold mb-4">Rp 100.000</div>
-            <ul class="space-y-2 text-sm mb-6 opacity-95">
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                82+ Perintah
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                Multi-Grup (20 grup)
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                OCR QRIS Scanner
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                Export Excel
-              </li>
-            </ul>
-            <a href="https://wa.me/628950214771?text=Halo%20saya%20mau%20sewa%20IDAIDO%20BOT%20professional" target="_blank" rel="noopener" class="block text-center py-2 rounded-lg bg-on-primary text-primary-container font-semibold hover:bg-slate-100 transition-colors text-sm">Pesan Sekarang</a>
-          </div>
-
-          <!-- Pricing Card 3 -->
-          <div class="p-6 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg">
-            <h3 class="font-headline-sm text-on-surface dark:text-white font-bold mb-2">Enterprise</h3>
-            <p class="text-sm text-on-surface-variant dark:text-slate-400 mb-4">Custom</p>
-            <div class="text-2xl font-bold text-on-surface dark:text-white mb-4">Custom</div>
-            <ul class="space-y-2 text-sm text-on-surface-variant dark:text-slate-300 mb-6">
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                Semua Fitur
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                Multi-Grup Unlimited
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
-                Support Prioritas
-              </li>
-            </ul>
-            <a href="https://wa.me/628950214771?text=Halo%20saya%20mau%20diskusi%20paket%20IDAIDO%20BOT%20enterprise" target="_blank" rel="noopener" class="block text-center py-2 rounded-lg bg-surface-container-low dark:bg-slate-800 text-on-surface dark:text-slate-200 font-semibold hover:bg-surface-container dark:hover:bg-slate-700 transition-colors text-sm">Hubungi</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="w-full py-20 bg-surface-container-low dark:bg-slate-950 transition-colors duration-200 border-t border-surface-container-high dark:border-slate-800">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-on-surface dark:text-white mb-4">Pertanyaan Umum</h2>
-        </div>
-
-        <div class="space-y-4">
-          <details class="p-4 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg cursor-pointer group">
-            <summary class="flex items-center justify-between font-semibold text-on-surface dark:text-white">
-              <span>Apakah bot ini aman digunakan?</span>
-              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-            </summary>
-            <p class="mt-3 text-sm text-on-surface-variant dark:text-slate-400">Bot IDAIDO menggunakan library WhatsApp tidak resmi. Gunakan pada nomor khusus, bukan pribadi utama. Keamanan bergantung pada Anda.</p>
-          </details>
-
-          <details class="p-4 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg cursor-pointer group">
-            <summary class="flex items-center justify-between font-semibold text-on-surface dark:text-white">
-              <span>Berapa biaya per bulan?</span>
-              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-            </summary>
-            <p class="mt-3 text-sm text-on-surface-variant dark:text-slate-400">7 hari trial gratis. Professional: Rp 100.000/30 hari. Tidak ada biaya tersembunyi.</p>
-          </details>
-
-          <details class="p-4 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg cursor-pointer group">
-            <summary class="flex items-center justify-between font-semibold text-on-surface dark:text-white">
-              <span>Bisa dipakai di berapa grup?</span>
-              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-            </summary>
-            <p class="mt-3 text-sm text-on-surface-variant dark:text-slate-400">Starter: 5 grup. Professional: 20 grup. Enterprise: unlimited.</p>
-          </details>
-
-          <details class="p-4 bg-surface-container-lowest dark:bg-[#1e293b] border border-surface-container-high dark:border-slate-700 rounded-lg cursor-pointer group">
-            <summary class="flex items-center justify-between font-semibold text-on-surface dark:text-white">
-              <span>Bagaimana cara setup?</span>
-              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-            </summary>
-            <p class="mt-3 text-sm text-on-surface-variant dark:text-slate-400">Hubungi owner via WhatsApp. Kami setup bot untuk Anda dalam 2 jam. Lengkap dengan panduan penggunaan.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="w-full py-20 bg-primary dark:bg-slate-900 transition-colors duration-200">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-on-primary dark:text-white mb-4">Siap Mulai?</h2>
-        <p class="text-base text-on-primary/90 dark:text-slate-300 mb-8 max-w-2xl mx-auto">Coba gratis 7 hari tanpa perlu kartu kredit. Setup dalam 2 jam oleh tim kami.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/628950214771?text=Halo%20saya%20mau%20coba%20IDAIDO%20BOT%20gratis" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-on-primary text-primary font-semibold px-8 py-3 rounded-lg hover:bg-slate-100 transition-colors">
-            <span class="material-symbols-outlined">chat</span>
-            <span>Hubungi via WhatsApp</span>
-          </a>
-          <a href="dokumentasi.html" class="inline-flex items-center justify-center gap-2 bg-on-primary/20 text-on-primary font-semibold px-8 py-3 rounded-lg border border-on-primary/30 hover:bg-on-primary/30 transition-colors">
-            <span class="material-symbols-outlined">description</span>
-            <span>Baca Dokumentasi</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-on-surface dark:bg-[#0f0f1a] text-on-primary dark:text-slate-300 py-12 border-t border-surface-container-high dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <h4 class="font-semibold mb-3">Produk</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#fitur" class="hover:text-primary-fixed transition-colors">Fitur</a></li>
-            <li><a href="#harga" class="hover:text-primary-fixed transition-colors">Harga</a></li>
-            <li><a href="#faq" class="hover:text-primary-fixed transition-colors">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Bantuan</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="dokumentasi.html" class="hover:text-primary-fixed transition-colors">Dokumentasi</a></li>
-            <li><a href="changelog.html" class="hover:text-primary-fixed transition-colors">Changelog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="policy.html" class="hover:text-primary-fixed transition-colors">Terms</a></li>
-            <li><a href="policy.html" class="hover:text-primary-fixed transition-colors">Privacy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Kontak</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="https://wa.me/628950214771" target="_blank" rel="noopener" class="hover:text-primary-fixed transition-colors">WhatsApp</a></li>
-            <li class="text-slate-400">+62 895-0214-771</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-slate-700 pt-8 text-center text-sm text-slate-400">
-        <p>&copy; 2026 IDAIDO BOT. All rights reserved. Made with ♥ by Team IDAIDO</p>
-      </div>
+    <div class="wa" aria-label="Simulasi chat WhatsApp">
+      <div class="wh"><span class="mark">I</span><div><b>Grup Store • IDAIDO BOT</b><small>Online • Siap Respon 24 Jam</small></div></div>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <div class="inp"><span class="ms mut">add_circle</span><div>Pilih tab di atas untuk simulasi alur...</div><span class="ms mut">mic</span></div>
     </div>
-  </footer>
+  </div>
+</div>
 
+<section id="alur-kerja" style="background:var(--inset);border-block:1px solid var(--line)"><div class="w">
+  <div class="head"><span class="eyebrow">Alur Kerja</span><h2>Bagaimana Bot Bekerja</h2><p class="mut">Empat langkah praktis yang terjadi setiap hari di grup jualanmu.</p></div>
+  <div class="grid g4" id="steps"></div>
+  <div class="note">Otomatisasi untuk pelanggan, kendali penuh tetap di tangan admin.</div>
+</div></section>
+
+<section id="fitur"><div class="w">
+  <div class="head"><span class="eyebrow">Fitur Utama</span><h2>Semua yang Dibutuhkan untuk Merapikan Jualan di Grup</h2><p class="mut">Pelanggan terlayani otomatis, kendali penuh tetap berada di tangan admin.</p></div>
+  <div class="grid g4" id="feats"></div>
+</div></section>
+
+<section id="harga" style="background:var(--inset);border-block:1px solid var(--line)"><div class="w price">
+  <div class="head"><span class="eyebrow">Harga Transparan</span><h2>Pilih Paket Sesuai Kebutuhan Usaha</h2><p class="mut">Investasi terjangkau untuk operasional toko 24 jam tanpa rekrut karyawan admin.</p></div>
+  <div class="trial">
+    <div><span class="ico" style="margin:0"><span class="ms">lightbulb</span></span><div style="display:block"><h3>Coba Gratis 3 Hari Penuh</h3><p>Kuota 300 balasan/hari, akses semua fitur, tanpa syarat kartu kredit.</p></div></div>
+    <a class="btn o" data-wa="Halo Admin IDAIDO BOT, saya mau klaim trial gratis 3 hari" href="#">Klaim Trial Sekarang</a>
+  </div>
+  <div class="grid g2" style="align-items:stretch">
+    <div class="card pc">
+      <div><h3>Paket Mingguan</h3><p class="mut">Untuk testing toko baru atau event promosi.</p></div>
+      <div><div class="amt">Rp5.000 <span>/ 7 hari</span></div><p class="mut">Hanya ~Rp714/hari</p></div>
+      <ul>
+        <li><span class="ms">check_circle</span>Pesan tak terbatas &amp; respon cepat</li>
+        <li><span class="ms">check_circle</span>OCR scanner pembaca bukti transfer</li>
+        <li><span class="ms">check_circle</span>Kirim akun rental instan</li>
+        <li><span class="ms">check_circle</span>Panduan setup mudah (PDF &amp; Video)</li>
+      </ul>
+      <a class="btn o" data-wa="Halo Admin IDAIDO BOT, saya mau pesan Paket Mingguan (Rp5.000)" href="#">Pilih Paket Mingguan</a>
+    </div>
+    <div class="card pc hot">
+      <span class="badge">Paling Hemat &amp; Populer</span>
+      <div><h3>Paket Bulanan</h3><p class="mut">Pilihan utama pemilik rental &amp; toko digital aktif.</p></div>
+      <div><div class="amt">Rp10.000 <span>/ 30 hari</span></div><p style="color:var(--acc);font-weight:500">Hemat 50% dibanding sewa per minggu</p></div>
+      <ul>
+        <li><span class="ms">check_circle</span>Semua fitur paket mingguan</li>
+        <li><span class="ms">check_circle</span>Prioritas update versi (v1.2+)</li>
+        <li><span class="ms">check_circle</span>Backup otomatis harian ke Google Drive/PC</li>
+        <li><span class="ms">check_circle</span>Support VIP via WhatsApp Owner</li>
+        <li><span class="ms">check_circle</span>Kustomisasi watermark brand toko</li>
+      </ul>
+      <a class="btn p" data-wa="Halo Admin IDAIDO BOT, saya mau pesan Paket Bulanan (Rp10.000)" href="#">Pilih Paket Bulanan</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="w">
+  <div class="head"><span class="eyebrow">Pertanyaan Umum</span><h2>Hal yang Sering Ditanyakan</h2></div>
+  <div class="faq" id="faqs"></div>
+</div></section>
+
+<section id="hubungi" style="padding-top:0"><div class="w">
+  <div class="fin">
+    <span class="badge"><span class="ms" style="font-size:14px">timer</span>Setup dalam 5 menit</span>
+    <h2>Siap Otomatiskan Rental dan Penjualan Toko Anda?</h2>
+    <p>Tinggalkan cara manual rekap chat. Biarkan IDAIDO BOT melayani pembeli saat Anda tidur nyenyak.</p>
+    <a class="btn p" data-wa="Halo Admin IDAIDO BOT, saya tertarik untuk mencoba trial bot WhatsApp" href="#" target="_blank" rel="noopener"><span class="ms">chat</span>Hubungi Admin via WhatsApp</a>
+    <div class="sm">
+      <span><span class="ms">verified</span>Panduan Instalasi Langkah-demi-Langkah</span>
+      <span><span class="ms">support_agent</span>Didampingi Langsung sampai Bot Aktif</span>
+      <span><span class="ms">lock</span>Data Toko 100% Milik Pribadi</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w"><div class="fg">
+  <div><a href="#" class="logo"><span class="mark">I</span>IDAIDO BOT</a>
+    <p class="mut" style="margin-top:12px;max-width:320px">Solusi otomasi bot WhatsApp cerdas untuk bisnis sewa akun digital dan toko online.</p>
+    <p class="mut" style="margin-top:12px">© 2026 IDAIDO BOT. Hak Cipta Dilindungi.</p></div>
+  <div><h4>Navigasi Cepat</h4><ul><li><a href="#fitur">Fitur Utama</a></li><li><a href="#alur-kerja">Alur Transaksi</a></li><li><a href="#harga">Paket Harga</a></li><li><a href="#faq">Panduan Setup</a></li></ul></div>
+  <div><h4>Dukungan</h4><ul><li><a data-wa="Halo Admin IDAIDO BOT, saya butuh bantuan" href="#" target="_blank" rel="noopener">WhatsApp Support</a></li></ul></div>
+</div></div></footer>
+
+<a class="fab" data-wa="Halo Admin IDAIDO BOT, saya butuh bantuan" href="#" target="_blank" rel="noopener"><span class="ms">chat</span>Butuh bantuan? Chat Owner</a>
+
+<script>
+/* ====== PENGATURAN: isi nomor WhatsApp admin (format 62..., tanpa + / spasi) ====== */
+const WA_NUMBER = "628950214771";
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Link WhatsApp
+document.querySelectorAll('[data-wa]').forEach(a => {
+  a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(a.dataset.wa);
+  if (a.closest('header')) { a.removeAttribute('target'); a.href = '#harga'; }
+});
+
+// Tema
+const tb = $('#theme'), root = document.documentElement;
+const syncIcon = () => tb.firstChild.textContent = root.dataset.theme === 'dark' ? 'light_mode' : 'dark_mode';
+tb.onclick = () => {
+  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme) } catch (e) {}
+  syncIcon();
+};
+syncIcon();
+
+// Statistik hero
+$('#stats').innerHTML = [['80+ Perintah','Modular & grup'],['100% Otomatis','Respon < 2 detik'],['OCR Scanner','Validasi QRIS pintar'],['Rekap Excel','Export .xlsx instan']]
+  .map(([a,b]) => `<div class="card"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('');
+
+// Simulasi chat
+const name = '@moooomuuuu 🏡 <3';
+const SIM = [
+ ['Langkah 1: Buyer Request Katalog', [
+  ['in','.list','09:41'],
+  ['bot',`hhi-haloow welcome to IDAIDO BOT — Contoh Toko 🎀
+we sell lots of choices that are definitely cheap, safe and legal
+@idaidostore
+
+⏰ : 09.43 WIB
+🐣 : ketik nama produk untuk melihat menu
+
+╭── { 🦊 catalogue .. //
+| 🪩 AI CHATGPT
+| 🪩 AI GEMINI ADVANCED
+| 🪩 AI LEONARDO PREMIUM
+| 🪩 AI PERPLEXITY PRO
+| 🪩 CANVA / CAPCUT PRO`,'09:43']]],
+ ['Langkah 2: Buyer Menanyakan Produk', [
+  ['in','ai chatgpt','09:44'],
+  ['bot',`« { CHATGPT PREMIUM } »
+
+SHARING:
+• 1 Bulan plan Plus 8U = Rp25.000 (garansi full, disable 1x)
+• 1 Bulan plan Go 8U = Rp15.000
+PRIVATE:
+• 1 Bulan plan plus = Rp150.000
+
+ℹ️ Ketik Payment pada grup untuk melakukan pembayaran`,'09:44']]],
+ ['Langkah 3: Pembayaran & Perintah Proses', [
+  ['in','🧾 Bukti QRIS: Rp25.000\nID: QR-8849102-IDD\n\nchatgpt sharing plan plus','09:45'],
+  ['adm','Membalas bukti pembayaran:\n.p','09:45'],
+  ['bot',`╭── [ TRANSAKSI DIPROSES ] ──
+| 🧑‍💼 Customer : ${name}
+| 📅 Tanggal : 18 November 2026
+| ⏰ Waktu : 09.45 WIB
+| 🛍️ Pesanan : chatgpt sharing plan plus
+
+Status: Diproses Admin`,'09:45']]],
+ ['Langkah 4: Done & Catat Kas Otomatis', [
+  ['adm','.d 25000','09:46'],
+  ['bot',`╭── [ TRANSAKSI SELESAI ] ──
+| 🧑‍💼 Customer : ${name}
+| 🧾 Order dicatat: Rp25.000
+| 🛍️ Pesanan : chatgpt sharing plan plus
+
+📊 Pemasukan harian otomatis ter-rekap ke sheet Excel (.xlsx)`,'09:46']]]
+];
+const WHO = {in:'Chat dari Buyer', adm:'Chat dari Seller / Admin', bot:'Bot IDAIDO'};
+const TAB = ['1. Katalog','2. Pilih Produk','3. Proses (.p)','4. Selesai (.d)'];
+function sim(n) {
+  $('#tabs').innerHTML = TAB.map((t,i) => `<button role="tab" aria-selected="${i===n}" class="${i===n?'on':''}" data-i="${i}">${t}</button>`).join('');
+  $('#chat').innerHTML = `<span class="cap">${esc(SIM[n][0])}</span>` + SIM[n][1].map(([k,t,h]) =>
+    `<div class="msg ${k}"><span class="who">${WHO[k]}</span>${esc(t)}<i>${h}${k!=='bot'?' ✓✓':''}</i></div>`).join('');
+}
+$('#tabs').onclick = e => { const b = e.target.closest('button'); if (b) sim(+b.dataset.i); };
+sim(0);
+
+// Alur kerja
+const STEPS = [
+ ['Pelanggan Melihat Katalog','Pelanggan mengetik <code>.list</code>. Bot membalas katalog produk lengkap dengan tampilan yang bisa diatur (header dan footer katalog).','Pelanggan langsung tahu apa yang dijual tanpa bertanya manual ke admin.'],
+ ['Pelanggan Memilih Produk','Pelanggan mengetik nama produk, misalnya <code>netflix</code>. Bot membalas detail produk, varian, dan harga terbaru.','Satu pesan menjawab pertanyaan harga berkali-kali secara otomatis.'],
+ ['Admin Memproses Pesanan','Admin membalas pesan pelanggan lalu mengirim perintah proses (<code>.p</code>). Bot mengirim notifikasi status ke grup.','Pelanggan tahu pesanannya sedang dikerjakan tanpa admin mengetik ulang nota.'],
+ ['Pesanan Selesai & Tercatat','Setelah pembayaran diterima, admin membalas pesan lalu mengetik <code>.d 50000</code>. Bot mengirim nota selesai dan mencatatnya ke laporan Excel.','Omset harian tersusun rapi otomatis tanpa hitung manual.']
+];
+$('#steps').innerHTML = STEPS.map(([t,d,b],i) =>
+  `<div class="card"><div class="pad"><span class="badge" style="align-self:flex-start;margin-bottom:12px">Langkah 0${i+1}</span><h3>${esc(t)}</h3><p>${d}</p><div class="ben"><b>Keuntungan:</b> ${esc(b)}</div></div></div>`).join('');
+
+// Fitur
+const FEATS = [
+ ['inventory_2','Katalog Produk + Foto','Tambahkan produk lengkap dengan foto. Pelanggan cukup mengetik nama produk, bot langsung membalas detailnya. Katalog bisa diimpor dan diekspor lewat file Excel atau teks.','Pelanggan langsung tahu apa yang dijual tanpa harus bertanya ke admin berulang kali.'],
+ ['chat','Template Pesan Otomatis','Pesan proses, selesai, pembuka, dan penutup grup tersedia dalam beberapa gaya. Bisa kamu ubah sendiri kapan saja, atau kembalikan ke pengaturan awal.','Respon pesanan seragam dan profesional tanpa perlu mengetik ulang dari awal.'],
+ ['lock_clock','Buka & Tutup Grup Otomatis','Atur jam buka dan tutup grup. Bot menguncinya tepat waktu setiap hari sesuai jam operasional tokomu tanpa perlu diingatkan manual.','Jam operasional tertib, anggota tidak mengirim pesan di luar jam kerja toko.'],
+ ['shield_person','Moderasi Grup','Anti-link dan anti-wame masing-masing memiliki 2 mode pengamanan. Ada juga perintah untuk mengeluarkan, mengangkat, dan menurunkan admin, serta tag seluruh anggota.','Grup bebas dari tautan promosi liar, spam, dan nomor mencurigakan.'],
+ ['block','Blacklist yang Bisa Dibatalkan','Catat nomor pengganggu beserta alasannya. Pesan mereka otomatis dihapus dan diberi peringatan. Salah memasukkan nomor? Admin dapat menghapus atau mengubahnya.','Pengganggu tidak bisa kembali berulah, dan kesalahan input nomor bisa langsung diralat.'],
+ ['table_view','Laporan Pendapatan Excel','Bot mencatat setiap pesanan yang diselesaikan, lalu kamu bisa mengunduh rekap harian, kemarin, mingguan, minggu lalu, bulanan, hingga bulan lalu dalam format Microsoft Excel (.xlsx).','Pemasukan harian tercatat rapi tanpa pembukuan manual yang melelahkan.'],
+ ['receipt_long','Baca Bukti Transfer (OCR)','Balas foto bukti transfer dengan perintah selesai, bot membaca nominalnya otomatis lalu meminta konfirmasi admin sebelum dicatat ke pembukuan.','Mempercepat verifikasi pembayaran dan mencegah kekeliruan input nominal order.'],
+ ['group','Kelola Grup Langsung dari Chat','Ubah nama, deskripsi, dan foto profil grup lewat perintah. Atur juga pesan sambutan (welcome) anggota baru, perpisahan (goodbye), dan proteksi dari pesan pribadi.','Administrasi grup selesai dalam hitungan detik tanpa membuka menu setelan grup.']
+];
+$('#feats').innerHTML = FEATS.map(([i,t,d,b]) =>
+  `<div class="card"><div class="pad"><div class="ico"><span class="ms">${i}</span></div><h3>${esc(t)}</h3><p>${esc(d)}</p><div class="ben"><b>Keuntungan:</b> ${esc(b)}</div></div></div>`).join('');
+
+// FAQ
+const FAQ = [
+ ['Apakah perlu PC atau server menyala terus?','Bot bisa berjalan di VPS murah seharga 15 ribuan/bulan atau laptop biasa. Kami juga menyediakan panduan setting di Cloud gratisan (tanpa perlu kartu kredit) sehingga Anda tidak perlu repot menyalakan perangkat sendiri 24 jam.'],
+ ['Bagaimana cara bot mendeteksi pembayaran?','Bot menggunakan teknologi AI OCR cerdas berkecepatan tinggi yang secara otomatis memindai gambar struk / bukti mutasi transfer yang dikirim pembeli. Bot membaca nominal transfer dan jam transaksi, lalu meminta konfirmasi admin sebelum dicatat.'],
+ ['Berapa lama masa aktif sewa bot?','Tersedia paket sewa fleksibel yaitu 7 hari (Mingguan) atau 30 hari (Bulanan). Masa sewa dapat diperpanjang kapan saja tanpa menyebabkan reset data katalog, stok rental, atau nomor database pelanggan Anda.'],
+ ['Apakah nomor WhatsApp saya aman dari banned?','IDAIDO BOT dilengkapi sistem keamanan berlapis: Smart Command Delay (jeda perintah otomatis), Anti-Spam protection, proteksi flood message, serta simulasi pengetikan manusia ("typing...") untuk menjaga reputasi nomor WhatsApp Anda.'],
+ ['Bisa dipakai di grup atau hanya private chat?','Bisa di keduanya. Anda dapat mengundang bot ke grup komunitas toko/rental untuk merespon perintah katalog bersama, atau memfungsikannya secara privat (1-on-1 chat) untuk proses transaksi yang lebih nyaman.']
+];
+$('#faqs').innerHTML = FAQ.map(([q,a],i) =>
+  `<details${i?'':' open'}><summary>${esc(q)}<span class="ms">expand_more</span></summary><div>${esc(a)}</div></details>`).join('');
+</script>
 </body>
 </html>
