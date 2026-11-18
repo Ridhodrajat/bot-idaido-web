@@ -569,9 +569,8 @@ function generate() {
     fs.mkdirSync(publicDir, { recursive: true });
   }
 
-  // Generate pages
+  // Generate pages (index.html adalah static file, jangan di-generate)
   const pages = {
-    "index.html": generateIndex(),
     "command.html": generateCommand(),
     "panduan.html": generatePanduan(),
     "dokumentasi.html": generateDocumentation(),
