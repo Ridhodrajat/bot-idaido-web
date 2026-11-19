@@ -7,7 +7,7 @@
   <meta name="description" content="Dokumentasi lengkap penggunaan IDAIDO BOT">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-owner-number="62812xxxxx" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
+<body data-owner-number="6289510214771" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
   
     <header>
       <div class="container">
@@ -41,12 +41,12 @@
 
         <section id="quickstart">
           <h2>Quick Start</h2>
-          <div><br>## Quickstart untuk Admin Grup<br><br>Sebelum mulai, pastikan:<br>1. <strong>Bot sudah di-invite ke grup</strong> oleh owner<br>2. <strong>Anda adalah admin grup</strong> (atau buat grup baru dengan bot)<br>3. <strong>Bot adalah admin</strong> (berikan akses admin ke bot)<br><br>### Langkah 1: Jadikan Bot Admin<br>Kirim perintah ke grup:<br>```<br>.setadmin on<br>```<br><br>### Langkah 2: Setup Katalog<br>Buat katalog produk:<br>```<br>.addlist Netflix | Langganan Netflix 30 hari | 50000<br>.addlist Spotify | Langganan Spotify 1 bulan | 30000<br>```<br><br>Lihat katalog:<br>```<br>.list<br>```<br><br>### Langkah 3: Setup Template Pesan<br>Buat template untuk status pesanan:<br>```<br>.tempproses Template: Pesanan sedang kami proses, mohon ditunggu ya 🙏<br>.tempdone Template: Pesanan selesai! Akun sudah dikirim 🎉<br>```<br><br>### Langkah 4: Setup Jadwal<br>Setup jam buka dan tutup otomatis:<br>```<br>.autoopen on<br>.autoopenset 08:00<br>.autoclose on<br>.autocloseset 22:00<br>```<br><br>### Langkah 5: Aktifkan Moderasi<br>Setup antilink dan blacklist:<br>```<br>.antilink on<br>.addblacklist 62812xxxx Nama Penipu<br>```<br><br>Selesai! Bot siap beroperasi.<br>    </div>
+          <div><br>## Mulai Menggunakan Bot<br><br>Sebelum mulai, pastikan:<br>1. <strong>Bot sudah diundang ke grup</strong> oleh owner<br>2. <strong>Masa sewa sudah aktif</strong> (owner mengaktifkan dengan `.addsewa`)<br>3. <strong>Anda admin grup</strong>, dan <strong>bot juga dijadikan admin</strong> agar bisa moderasi dan mengubah info grup<br><br>### Langkah 1: Buka Menu<br>Kirim perintah berikut di grup:<br>```<br>.menu<br>```<br><br>### Langkah 2: Isi Katalog<br>Kirim `.addlist` lalu ikuti petunjuk bot untuk mengisi nama, harga, dan foto produk.<br>Cek hasilnya dengan:<br>```<br>.list<br>.previewlist<br>```<br><br>### Langkah 3: Pilih Template Pesan<br>Pilih gaya pesan proses dan pesan selesai:<br>```<br>.setproses<br>.setdone<br>```<br>Pesan buka dan tutup grup diatur dengan `.setopen` dan `.setclose`.<br><br>### Langkah 4: Pesan Sambutan<br>Kelola welcome dan goodbye:<br>```<br>.welcome<br>.goodbye<br>.setwelcome<br>.setleft<br>```<br><br>### Langkah 5: Moderasi Grup<br>Aktifkan proteksi grup dan catat nomor pengganggu:<br>```<br>.antilink<br>.antiwame<br>.addblacklist<br>```<br><br>Selesai! Bot siap beroperasi.<br>    </div>
         </section>
 
         <section id="setup">
           <h2>Alur Kerja Harian</h2>
-          <div><br>## Alur Kerja Harian<br><br>### Pagi (Saat Buka Grup)<br>1. Bot otomatis buka grup (jika jadwal aktif)<br>2. Kirim sapaan ke group dengan `.announce Pagi! Grup sudah dibuka`<br><br>### Saat Ada Pesanan<br>1. Pelanggan chat atau kirim ke grup<br>2. Anda balas chat pelanggan<br>3. Kirim perintah `.proses` (balas chat pelanggan)<br>4. Template otomatis terkirim<br><br>### Saat Pesanan Selesai<br>1. Kirim akun/barang ke pelanggan<br>2. Kirim perintah `.done 50000` (balas chat dengan nominal)<br>3. Bot otomatis catat ke laporan<br><br>### Malam (Saat Tutup Grup)<br>1. Bot otomatis tutup grup (jika jadwal aktif)<br>2. Laporan otomatis di-generate ke Excel dengan `.dataordernow`<br><br>### Akhir Hari<br>1. Ekspor laporan dengan `.dataorderweek` atau `.dataordermonth`<br>2. Rekap omset dan pesanan<br>    </div>
+          <div><br>## Alur Kerja Harian<br><br>### Saat Ada Pesanan<br>1. Pelanggan mengetik `.list` atau nama produk di grup<br>2. Anda balas chat pelanggan lalu kirim `.p`<br>3. Bot mengirim template status diproses ke grup<br><br>### Saat Pesanan Selesai<br>1. Kirim akun/barang ke pelanggan<br>2. Balas chat pelanggan lalu kirim `.d 25000` sesuai nominal order<br>3. Bot mengirim nota selesai dan mencatat order ke laporan<br><br>### Buka & Tutup Grup<br>1. Buka grup dengan `.open`, tutup dengan `.close`<br>2. Atau aktifkan jadwal otomatis (`.autoopen`, `.autoclose`) agar bot mengunci grup sesuai jam operasional<br><br>### Laporan<br>Unduh rekap order dalam format Excel (.xlsx):<br>```<br>.dataordernow<br>.dataorderlast<br>.dataorderweek<br>.dataordermonth<br>```<br>    </div>
         </section>
 
         <section id="commands">
@@ -63,43 +63,73 @@
               <tbody>
                 
                   <tr>
+                    <td><code>.menu</code></td>
+                    <td>Tampilkan menu bot</td>
+                  </tr>
+                
+                  <tr>
                     <td><code>.list</code></td>
                     <td>Lihat katalog produk</td>
                   </tr>
                 
                   <tr>
-                    <td><code>.addlist netflix | Langganan Netflix 30 hari</code></td>
+                    <td><code>.addlist</code></td>
                     <td>Tambah produk ke katalog</td>
                   </tr>
                 
                   <tr>
-                    <td><code>.proses</code></td>
+                    <td><code>.previewlist</code></td>
+                    <td>Pratinjau tampilan katalog</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.p</code></td>
                     <td>Tandai pesanan sedang diproses (balas chat pelanggan)</td>
                   </tr>
                 
                   <tr>
-                    <td><code>.done 50000</code></td>
+                    <td><code>.d 50000</code></td>
                     <td>Tandai pesanan selesai + catat nominal (balas chat pelanggan)</td>
                   </tr>
                 
                   <tr>
                     <td><code>.dataordernow</code></td>
-                    <td>Laporan order hari ini ke Excel</td>
+                    <td>Unduh laporan order hari ini (Excel)</td>
                   </tr>
                 
                   <tr>
-                    <td><code>.addblacklist 62812xxxx Nama</code></td>
+                    <td><code>.dataorderweek</code></td>
+                    <td>Unduh laporan order minggu ini (Excel)</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.addblacklist</code></td>
                     <td>Tambah nomor ke blacklist</td>
                   </tr>
                 
                   <tr>
-                    <td><code>.autoopen on</code></td>
+                    <td><code>.antilink</code></td>
+                    <td>Aktifkan antilink mode 1</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.autoopen</code></td>
                     <td>Aktifkan buka grup otomatis</td>
                   </tr>
                 
                   <tr>
                     <td><code>.autoopenset 08:00</code></td>
-                    <td>Set jam buka otomatis</td>
+                    <td>Atur jam buka otomatis</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.welcome</code></td>
+                    <td>Kelola pesan sambutan anggota baru</td>
+                  </tr>
+                
+                  <tr>
+                    <td><code>.ceksewa</code></td>
+                    <td>Cek status sewa grup</td>
                   </tr>
                 
               </tbody>
@@ -128,7 +158,7 @@
           <div class="footer-section">
             <h3>Kontak</h3>
             <ul>
-              <li><a href="https://wa.me/62812" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="https://wa.me/6289510214771" target="_blank" rel="noopener">WhatsApp</a></li>
             </ul>
           </div>
           <div class="footer-section">

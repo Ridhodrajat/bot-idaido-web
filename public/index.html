@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IDAIDO BOT — Bot WhatsApp Otomatis untuk Rental &amp; Toko Digital</title>
-<meta name="description" content="Kelola katalog, terima pembayaran QRIS via OCR, kirim akun rental, dan rekap laporan Excel otomatis tanpa admin standby 24 jam.">
+<meta name="description" content="Bot WhatsApp otomatis untuk rental akun dan toko digital: katalog produk, proses pesanan, moderasi grup, dan rekap laporan Excel langsung dari grup WhatsApp.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
 <script>try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}</script>
 <style>
@@ -97,12 +99,12 @@ h1{font:700 26px/32px Inter,sans-serif;letter-spacing:-.02em;margin:16px 0}
 .pc li{display:flex;gap:8px}.pc li .ms{color:var(--acc);font-size:18px}
 /* faq */
 .faq{max-width:760px;margin:0 auto;display:grid;gap:8px}
-details{background:var(--card);border:1px solid var(--line);border-radius:8px}
-details[open],details:hover{border-color:var(--line2)}
-summary{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;font-weight:600;cursor:pointer;list-style:none}
-summary::-webkit-details-marker{display:none}
-details[open] summary .ms{transform:rotate(180deg)}
-details div{padding:0 16px 16px;color:var(--mut)}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:8px}
+.faq details[open],.faq details:hover{border-color:var(--line2)}
+.faq summary{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq details[open] summary .ms{transform:rotate(180deg)}
+.faq details div{padding:0 16px 16px;color:var(--mut)}
 /* final cta */
 .fin{background:var(--cta);color:#f1f5f9;border:1px solid #334155;border-radius:12px;padding:48px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
 .fin h2{color:#fff;font-size:26px;margin:0;max-width:560px}.fin p{color:#94a3b8;max-width:480px}
@@ -116,14 +118,54 @@ footer h4{font:600 13px Inter,sans-serif;margin-bottom:12px}footer ul{list-style
 footer a:hover{color:var(--acc)}
 .fab{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;gap:8px;align-items:center;height:44px;padding:0 16px;border-radius:8px;background:var(--pri);color:#fff;font-weight:500}
 .fab:hover{background:var(--prih)}
+/* logo image */
+img.mark{width:32px;height:32px;border-radius:8px;object-fit:cover;background:var(--inset)}
+.wh img.mark{width:36px;height:36px;border-radius:50%}
+/* command directory */
+.cmd-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-bottom:16px}
+.cmd-search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:0 12px;min-height:42px}
+.cmd-search:focus-within{border-color:var(--pri);box-shadow:0 0 0 2px rgba(15,118,110,.15)}
+.cmd-search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:400 14px Inter,sans-serif;outline:none}
+.cmd-search .ms{color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:6px;padding:6px 10px;font:500 12px Inter,sans-serif;cursor:pointer;transition:border-color .15s,color .15s}
+.chip:hover{border-color:var(--line2);color:var(--ink)}
+.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.cmd-group{margin-bottom:20px}
+.cmd-group>summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;padding:8px 0;font:600 16px/24px Inter,sans-serif;color:var(--ink);letter-spacing:-.01em}
+.cmd-group>summary::-webkit-details-marker{display:none}
+.cmd-group>summary .cnt{font:600 11px Inter,sans-serif;color:var(--mut);letter-spacing:.04em}
+.cmd-group>summary .ms{margin-left:auto;color:var(--mut);transition:transform .15s}
+.cmd-group[open]>summary .ms{transform:rotate(180deg)}
+.cmd-group[open]>summary{border-bottom:1px solid var(--line);margin-bottom:12px}
+.cmd-list{display:grid;gap:8px}
+.cmd{display:grid;grid-template-columns:minmax(150px,220px) 1fr auto;gap:12px;align-items:center;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:8px;transition:border-color .15s}
+.cmd:hover{border-color:var(--line2)}
+.cmd code{font:500 13px ui-monospace,Menlo,monospace;color:var(--ink);background:var(--inset);border:1px solid var(--line);border-radius:4px;padding:2px 6px;justify-self:start}
+.cmd p{margin:0;color:var(--mut);font-size:13px;line-height:18px}
+.cmd .tags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.tag{font:600 10px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:3px 6px;border-radius:4px;border:1px solid var(--line);color:var(--mut);background:var(--inset);white-space:nowrap}
+.tag.prem{color:var(--acc);border-color:var(--mbd);background:var(--mbg)}
+.cmd-empty{padding:24px;text-align:center;color:var(--mut);background:var(--card);border:1px solid var(--line);border-radius:8px}
+@media(max-width:640px){.cmd{grid-template-columns:1fr auto;gap:4px 8px;padding:10px 12px;align-items:start}.cmd p{grid-column:1/-1}.cmd .tags{justify-content:flex-end}}
+/* changelog timeline */
+.tl{max-width:820px;margin:0 auto;position:relative}
+.tl:before{content:'';position:absolute;left:7px;top:6px;bottom:10px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding:0 0 28px 34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:before{content:'';position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:2px solid var(--pri)}
+.tl-item h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl-item time{font:500 12px Inter,sans-serif;color:var(--mut)}
+.tl-item ul{margin:10px 0 0;padding-left:18px;color:var(--mut);display:grid;gap:6px;font-size:13px;line-height:19px}
+.tl-item li::marker{color:var(--acc)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dot{animation:none}}
 </style>
 </head>
 <body>
 
 <header><div class="w">
-  <a href="#" class="logo"><span class="mark">I</span>IDAIDO BOT <span class="badge">v1.1.0</span></a>
-  <nav><a href="#fitur">Fitur</a><a href="#alur-kerja">Alur Kerja</a><a href="#harga">Harga</a><a href="#faq">FAQ</a></nav>
+  <a href="#" class="logo"><img class="mark" src="assets/img/logo-mark.png" alt="IDAIDO BOT">IDAIDO BOT <span class="badge">v1.1.0</span></a>
+  <nav><a href="#fitur">Fitur</a><a href="#alur-kerja">Alur Kerja</a><a href="#perintah">Perintah</a><a href="#harga">Harga</a><a href="#changelog">Changelog</a><a href="#faq">FAQ</a></nav>
   <div class="hr">
     <button class="btn o ic" id="theme" aria-label="Ganti mode terang/gelap"><span class="ms">dark_mode</span></button>
     <a class="btn p" data-wa="Halo Admin IDAIDO BOT, saya tertarik untuk mencoba trial bot WhatsApp" href="#harga">Coba Gratis</a>
@@ -132,7 +174,7 @@ footer a:hover{color:var(--acc)}
 
 <div class="bar"><div class="w">
   <span style="color:var(--acc)"><span class="dot"></span>Gateway Engine: v1.1.0 Online</span>
-  <span>Rata-rata Respon: &lt; 1.4s</span><span>Akurasi OCR: 99.8%</span>
+  <span>Rata-rata Respon: &lt; 1.4s</span><span>88 Perintah Siap Pakai</span>
 </div></div>
 
 <main>
@@ -141,16 +183,16 @@ footer a:hover{color:var(--acc)}
     <div>
       <span class="badge"><span class="dot" style="margin:0"></span>Update v1.1.0 Aktif · 100% Otomatis</span>
       <h1>Bot WhatsApp Otomatis untuk Rental &amp; Toko Digital</h1>
-      <p class="lead">Kelola katalog, terima pembayaran QRIS otomatis via OCR, kirim akun rental, hingga rekap laporan Excel tanpa perlu admin standby 24 jam.</p>
+      <p class="lead">Kelola katalog produk, proses pesanan, dan rekap laporan Excel otomatis langsung dari grup WhatsApp — tanpa perlu admin standby 24 jam.</p>
       <div class="cta">
-        <a class="btn p" href="#harga">Mulai Trial Gratis (3 Hari) <span class="ms">arrow_forward</span></a>
-        <a class="btn o" href="#fitur"><span class="ms" style="color:var(--acc)">terminal</span>Lihat 80+ Perintah</a>
+        <a class="btn p" href="#harga">Mulai Trial Gratis (7 Hari) <span class="ms">arrow_forward</span></a>
+        <a class="btn o" href="#perintah"><span class="ms" style="color:var(--acc)">terminal</span>Lihat 88 Perintah</a>
       </div>
       <div class="stats" id="stats"></div>
     </div>
 
     <div class="wa" aria-label="Simulasi chat WhatsApp">
-      <div class="wh"><span class="mark">I</span><div><b>Grup Store • IDAIDO BOT</b><small>Online • Siap Respon 24 Jam</small></div></div>
+      <div class="wh"><img class="mark" src="assets/img/logo-mark.png" alt="IDAIDO BOT"><div><b>Grup Store • IDAIDO BOT</b><small>Online • Siap Respon 24 Jam</small></div></div>
       <div class="tabs" id="tabs" role="tablist"></div>
       <div class="chat" id="chat" aria-live="polite"></div>
       <div class="inp"><span class="ms mut">add_circle</span><div>Pilih tab di atas untuk simulasi alur...</div><span class="ms mut">mic</span></div>
@@ -169,38 +211,82 @@ footer a:hover{color:var(--acc)}
   <div class="grid g4" id="feats"></div>
 </div></section>
 
+<section id="perintah" style="background:var(--inset);border-block:1px solid var(--line)"><div class="w">
+  <div class="head"><span class="eyebrow">Referensi Perintah</span><h2>Semua Perintah Bot</h2><p class="mut">88 perintah siap pakai, dikelompokkan per kategori. Cari perintah yang kamu butuhkan atau unduh daftar lengkapnya dalam format PDF.</p></div>
+  <div class="cmd-tools">
+    <label class="cmd-search"><span class="ms">search</span><input id="cmd-search" type="search" placeholder="Cari perintah, misalnya: katalog, blacklist, laporan..." aria-label="Cari perintah"></label>
+    <a class="btn p" href="assets/pdf/daftar-perintah-idaido-bot.pdf" download><span class="ms">download</span>Unduh PDF</a>
+  </div>
+  <div class="chips" id="cmd-chips"></div>
+  <div id="cmd-out"></div>
+</div></section>
+
 <section id="harga" style="background:var(--inset);border-block:1px solid var(--line)"><div class="w price">
   <div class="head"><span class="eyebrow">Harga Transparan</span><h2>Pilih Paket Sesuai Kebutuhan Usaha</h2><p class="mut">Investasi terjangkau untuk operasional toko 24 jam tanpa rekrut karyawan admin.</p></div>
   <div class="trial">
-    <div><span class="ico" style="margin:0"><span class="ms">lightbulb</span></span><div style="display:block"><h3>Coba Gratis 3 Hari Penuh</h3><p>Kuota 300 balasan/hari, akses semua fitur, tanpa syarat kartu kredit.</p></div></div>
-    <a class="btn o" data-wa="Halo Admin IDAIDO BOT, saya mau klaim trial gratis 3 hari" href="#">Klaim Trial Sekarang</a>
+    <div><span class="ico" style="margin:0"><span class="ms">lightbulb</span></span><div style="display:block"><h3>Coba Gratis 7 Hari Penuh</h3><p>Kuota 300 balasan/hari, akses fitur dasar, tanpa syarat kartu kredit.</p></div></div>
+    <a class="btn o" data-wa="Halo Admin IDAIDO BOT, saya mau klaim trial gratis 7 hari" href="#">Klaim Trial Sekarang</a>
   </div>
   <div class="grid g2" style="align-items:stretch">
     <div class="card pc">
       <div><h3>Paket Mingguan</h3><p class="mut">Untuk testing toko baru atau event promosi.</p></div>
       <div><div class="amt">Rp5.000 <span>/ 7 hari</span></div><p class="mut">Hanya ~Rp714/hari</p></div>
       <ul>
-        <li><span class="ms">check_circle</span>Pesan tak terbatas &amp; respon cepat</li>
-        <li><span class="ms">check_circle</span>OCR scanner pembaca bukti transfer</li>
-        <li><span class="ms">check_circle</span>Kirim akun rental instan</li>
-        <li><span class="ms">check_circle</span>Panduan setup mudah (PDF &amp; Video)</li>
+        <li><span class="ms">check_circle</span>Balasan tak terbatas &amp; respon cepat</li>
+        <li><span class="ms">check_circle</span>Semua fitur terbuka (tanpa batas trial)</li>
+        <li><span class="ms">check_circle</span>Katalog produk + foto &amp; template pesan</li>
+        <li><span class="ms">check_circle</span>Laporan order Excel &amp; moderasi grup</li>
+        <li><span class="ms">check_circle</span>Panduan setup langsung dari owner</li>
       </ul>
       <a class="btn o" data-wa="Halo Admin IDAIDO BOT, saya mau pesan Paket Mingguan (Rp5.000)" href="#">Pilih Paket Mingguan</a>
     </div>
     <div class="card pc hot">
       <span class="badge">Paling Hemat &amp; Populer</span>
       <div><h3>Paket Bulanan</h3><p class="mut">Pilihan utama pemilik rental &amp; toko digital aktif.</p></div>
-      <div><div class="amt">Rp10.000 <span>/ 30 hari</span></div><p style="color:var(--acc);font-weight:500">Hemat 50% dibanding sewa per minggu</p></div>
+      <div><div class="amt">Rp10.000 <span>/ 30 hari</span></div><p style="color:var(--acc);font-weight:500">Hemat 53% dibanding sewa per minggu</p></div>
       <ul>
         <li><span class="ms">check_circle</span>Semua fitur paket mingguan</li>
-        <li><span class="ms">check_circle</span>Prioritas update versi (v1.2+)</li>
-        <li><span class="ms">check_circle</span>Backup otomatis harian ke Google Drive/PC</li>
+        <li><span class="ms">check_circle</span>Prioritas update versi terbaru</li>
+        <li><span class="ms">check_circle</span>Data katalog &amp; pengaturan tetap tersimpan</li>
         <li><span class="ms">check_circle</span>Support VIP via WhatsApp Owner</li>
-        <li><span class="ms">check_circle</span>Kustomisasi watermark brand toko</li>
+        <li><span class="ms">check_circle</span>Bisa diperpanjang kapan saja</li>
       </ul>
       <a class="btn p" data-wa="Halo Admin IDAIDO BOT, saya mau pesan Paket Bulanan (Rp10.000)" href="#">Pilih Paket Bulanan</a>
     </div>
   </div>
+  <div class="note" style="margin-top:20px">Butuh durasi lain? Sewa bisa fleksibel (7 hari, 1 bulan, atau lebih) dan harga bisa didiskusikan langsung dengan owner.</div>
+</div></section>
+
+<section id="changelog" style="background:var(--inset);border-block:1px solid var(--line)"><div class="w">
+  <div class="head"><span class="eyebrow">Catatan Rilis</span><h2>Riwayat Pembaruan Bot</h2><p class="mut">Setiap perubahan penting pada IDAIDO BOT dicatat terbuka di sini.</p></div>
+  <div class="tl">
+    <div class="tl-item">
+      <h3>v1.1.0 <span class="badge">Terbaru</span> <time datetime="2026-11-17">17 November 2026</time></h3>
+      <ul>
+        <li>Sistem paket trial dan berbayar: grup baru otomatis berpaket berbayar, grup trial dibatasi kuota balasan harian yang direset pukul 00.00 WIB.</li>
+        <li>Fitur premium terkunci pada paket trial dan terbuka otomatis di paket berbayar.</li>
+        <li>Perintah owner baru: <code>.trial [durasi]</code>, <code>.setplan trial|paid</code>, dan <code>.paket</code>.</li>
+        <li>Pengaman agar grup berbayar aktif tidak sengaja berubah menjadi trial.</li>
+        <li>Iklan upsell trial menyesuaikan panjang pesan, welcome, dan tidak ditempel pada pesan error atau menu.</li>
+        <li>Harga sewa: Rp5.000 / 7 hari dan Rp10.000 / 30 hari.</li>
+        <li>Perbaikan antilink dan antiwame agar benar-benar menghapus pesan dan memberi peringatan atau kick sesuai mode.</li>
+        <li>Menu menyesuaikan hak akses: perintah owner/admin disembunyikan dari anggota biasa.</li>
+        <li>Perbaikan laporan Excel dalam membaca nomor telepon asli (LID WhatsApp).</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <h3>v1.0.0 <time datetime="2026-10-18">18 Oktober 2026</time></h3>
+      <ul>
+        <li>Rilis pertama: katalog produk dengan template teks dan foto (<code>.addlist</code>, <code>.updatelist</code>, <code>.dellist</code>, <code>.list</code>).</li>
+        <li>Pencatatan transaksi: status proses dan selesai, template otomatis, serta pencatatan nominal order.</li>
+        <li>Laporan Excel: rekap pendapatan dan order harian, mingguan, dan bulanan (.xlsx).</li>
+        <li>Moderasi grup: antilink, antiwame, buka/tutup grup otomatis, hidetag, dan blacklist anggota.</li>
+        <li>Welcome dan goodbye kustom dengan variabel dinamis.</li>
+        <li>Sistem sewa per grup: <code>.addsewa</code>, <code>.delsewa</code>, <code>.listsewa</code>, <code>.ceksewa</code> dengan pengingat menjelang kedaluwarsa.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="mut" style="text-align:center;margin-top:24px">Lihat riwayat lengkap di <a href="https://github.com/Ridhodrajat/wa-rental-bot/blob/main/CHANGELOG.md" target="_blank" rel="noopener" style="color:var(--acc);font-weight:600">CHANGELOG GitHub</a>.</p>
 </div></section>
 
 <section id="faq"><div class="w">
@@ -224,18 +310,18 @@ footer a:hover{color:var(--acc)}
 </main>
 
 <footer><div class="w"><div class="fg">
-  <div><a href="#" class="logo"><span class="mark">I</span>IDAIDO BOT</a>
+  <div><a href="#" class="logo"><img class="mark" src="assets/img/logo-mark.png" alt="IDAIDO BOT">IDAIDO BOT</a>
     <p class="mut" style="margin-top:12px;max-width:320px">Solusi otomasi bot WhatsApp cerdas untuk bisnis sewa akun digital dan toko online.</p>
     <p class="mut" style="margin-top:12px">© 2026 IDAIDO BOT. Hak Cipta Dilindungi.</p></div>
-  <div><h4>Navigasi Cepat</h4><ul><li><a href="#fitur">Fitur Utama</a></li><li><a href="#alur-kerja">Alur Transaksi</a></li><li><a href="#harga">Paket Harga</a></li><li><a href="#faq">Panduan Setup</a></li></ul></div>
-  <div><h4>Dukungan</h4><ul><li><a data-wa="Halo Admin IDAIDO BOT, saya butuh bantuan" href="#" target="_blank" rel="noopener">WhatsApp Support</a></li></ul></div>
+  <div><h4>Navigasi Cepat</h4><ul><li><a href="#fitur">Fitur Utama</a></li><li><a href="#alur-kerja">Alur Transaksi</a></li><li><a href="#perintah">Daftar Perintah</a></li><li><a href="#harga">Paket Harga</a></li><li><a href="#changelog">Catatan Rilis</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+  <div><h4>Dukungan</h4><ul><li><a data-wa="Halo Admin IDAIDO BOT, saya butuh bantuan" href="#" target="_blank" rel="noopener">WhatsApp Support</a></li><li><a href="assets/pdf/daftar-perintah-idaido-bot.pdf" download>Unduh Daftar Perintah (PDF)</a></li></ul></div>
 </div></div></footer>
 
 <a class="fab" data-wa="Halo Admin IDAIDO BOT, saya butuh bantuan" href="#" target="_blank" rel="noopener"><span class="ms">chat</span>Butuh bantuan? Chat Owner</a>
 
 <script>
 /* ====== PENGATURAN: isi nomor WhatsApp admin (format 62..., tanpa + / spasi) ====== */
-const WA_NUMBER = "628950214771";
+const WA_NUMBER = "6289510214771";
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -257,7 +343,7 @@ tb.onclick = () => {
 syncIcon();
 
 // Statistik hero
-$('#stats').innerHTML = [['80+ Perintah','Modular & grup'],['100% Otomatis','Respon < 2 detik'],['OCR Scanner','Validasi QRIS pintar'],['Rekap Excel','Export .xlsx instan']]
+$('#stats').innerHTML = [['88 Perintah','7 kategori'],['100% Otomatis','Respon < 2 detik'],['Multi-Grup','Satu bot, banyak grup'],['Rekap Excel','Export .xlsx instan']]
   .map(([a,b]) => `<div class="card"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('');
 
 // Simulasi chat
@@ -336,19 +422,139 @@ const FEATS = [
  ['shield_person','Moderasi Grup','Anti-link dan anti-wame masing-masing memiliki 2 mode pengamanan. Ada juga perintah untuk mengeluarkan, mengangkat, dan menurunkan admin, serta tag seluruh anggota.','Grup bebas dari tautan promosi liar, spam, dan nomor mencurigakan.'],
  ['block','Blacklist yang Bisa Dibatalkan','Catat nomor pengganggu beserta alasannya. Pesan mereka otomatis dihapus dan diberi peringatan. Salah memasukkan nomor? Admin dapat menghapus atau mengubahnya.','Pengganggu tidak bisa kembali berulah, dan kesalahan input nomor bisa langsung diralat.'],
  ['table_view','Laporan Pendapatan Excel','Bot mencatat setiap pesanan yang diselesaikan, lalu kamu bisa mengunduh rekap harian, kemarin, mingguan, minggu lalu, bulanan, hingga bulan lalu dalam format Microsoft Excel (.xlsx).','Pemasukan harian tercatat rapi tanpa pembukuan manual yang melelahkan.'],
- ['receipt_long','Baca Bukti Transfer (OCR)','Balas foto bukti transfer dengan perintah selesai, bot membaca nominalnya otomatis lalu meminta konfirmasi admin sebelum dicatat ke pembukuan.','Mempercepat verifikasi pembayaran dan mencegah kekeliruan input nominal order.'],
+ ['dns','Tanpa VPS & Tanpa Server','Bot berjalan 24/7 di server kami. Kamu tidak perlu menyiapkan VPS, menyalakan laptop, atau melakukan setting teknis apa pun. Cukup undang bot ke grup, owner aktifkan sewa dengan perintah addsewa, dan bot langsung siap dipakai.','Tinggal pakai. Tanpa biaya server tambahan dan tanpa perlu paham teknis.'],
  ['group','Kelola Grup Langsung dari Chat','Ubah nama, deskripsi, dan foto profil grup lewat perintah. Atur juga pesan sambutan (welcome) anggota baru, perpisahan (goodbye), dan proteksi dari pesan pribadi.','Administrasi grup selesai dalam hitungan detik tanpa membuka menu setelan grup.']
 ];
 $('#feats').innerHTML = FEATS.map(([i,t,d,b]) =>
   `<div class="card"><div class="pad"><div class="ico"><span class="ms">${i}</span></div><h3>${esc(t)}</h3><p>${esc(d)}</p><div class="ben"><b>Keuntungan:</b> ${esc(b)}</div></div></div>`).join('');
 
+// Daftar perintah
+const CMDS = [
+{n:'menu',d:'Menampilkan menu bot',c:'owner',a:'all'},
+{n:'cekmenu',d:'Menampilkan menu bot (alias)',c:'owner',a:'all',f:'h'},
+{n:'owner',d:'Menampilkan kontak owner',c:'owner',a:'all'},
+{n:'addsewa',d:'Tambah/perpanjang sewa (owner)',c:'owner',a:'owner'},
+{n:'trial',d:'Aktifkan trial dengan durasi bebas (owner)',c:'owner',a:'owner'},
+{n:'delsewa',d:'Nonaktifkan sewa (owner)',c:'owner',a:'owner'},
+{n:'ceksewa',d:'Cek status sewa grup',c:'owner',a:'all'},
+{n:'listsewa',d:'List semua rental (owner)',c:'owner',a:'owner'},
+{n:'setplan',d:'Ubah paket sewa: trial/paid (owner)',c:'owner',a:'owner'},
+{n:'paket',d:'Lihat paket & harga sewa',c:'owner',a:'all'},
+{n:'antiprivate',d:'Aktifkan/matikan anti private chat',c:'owner',a:'owner'},
+{n:'setprivatelimit',d:'Atur batas pesan private',c:'owner',a:'owner'},
+{n:'autoblock',d:'Auto-block internal on/off',c:'owner',a:'owner'},
+{n:'cekantiprivate',d:'Lihat status anti private chat',c:'owner',a:'owner'},
+{n:'setowner',d:'Simpan nomor owner override',c:'owner',a:'owner'},
+{n:'list',d:'Lihat katalog produk',c:'product',a:'all'},
+{n:'addlist',d:'Tambah produk',c:'product',a:'admin'},
+{n:'updatelist',d:'Ubah info produk',c:'product',a:'admin'},
+{n:'renamelist',d:'Ganti nama produk',c:'product',a:'admin'},
+{n:'dellist',d:'Hapus produk',c:'product',a:'admin'},
+{n:'setproses',d:'Pilih template proses',c:'transaction',a:'admin'},
+{n:'changeproses',d:'Ubah template proses',c:'transaction',a:'admin'},
+{n:'delsetproses',d:'Reset template proses',c:'transaction',a:'admin'},
+{n:'setdone',d:'Pilih template selesai',c:'transaction',a:'admin'},
+{n:'changedone',d:'Ubah template selesai',c:'transaction',a:'admin'},
+{n:'delsetdone',d:'Reset template selesai',c:'transaction',a:'admin'},
+{n:'proses',d:'Kelola/kirim template proses',c:'transaction',a:'admin'},
+{n:'done',d:'Kelola/kirim template selesai',c:'transaction',a:'admin'},
+{n:'setopen',d:'Pilih template pesan open',c:'transaction',a:'admin'},
+{n:'setclose',d:'Pilih template pesan close',c:'transaction',a:'admin'},
+{n:'setlisttemplate',d:'Pilih template katalog',c:'product',a:'admin'},
+{n:'previewlist',d:'Preview katalog',c:'product',a:'all'},
+{n:'setlistheader',d:'Atur header katalog manual',c:'product',a:'admin',f:'p'},
+{n:'setlistfooter',d:'Atur footer katalog manual',c:'product',a:'admin',f:'p'},
+{n:'resetlisttemplate',d:'Reset template katalog',c:'product',a:'admin'},
+{n:'exportlist',d:'Export katalog ke Excel/Teks',c:'product',a:'admin',f:'p'},
+{n:'importlist',d:'Import katalog dari file',c:'product',a:'admin',f:'p'},
+{n:'welcome',d:'Kelola welcome (on/off/preview)',c:'welcome',a:'admin'},
+{n:'goodbye',d:'Kelola goodbye (on/off/preview)',c:'welcome',a:'admin'},
+{n:'setwelcome',d:'Pilih/atur template welcome',c:'welcome',a:'admin'},
+{n:'changewelcome',d:'Ubah template welcome',c:'welcome',a:'admin'},
+{n:'delsetwelcome',d:'Reset template welcome',c:'welcome',a:'admin'},
+{n:'setleft',d:'Pilih/atur template goodbye',c:'welcome',a:'admin'},
+{n:'changeleft',d:'Ubah template goodbye',c:'welcome',a:'admin'},
+{n:'delsetleft',d:'Reset template goodbye',c:'welcome',a:'admin'},
+{n:'antiwame',d:'Antiwame mode 1',c:'moderation',a:'admin'},
+{n:'antiwame2',d:'Antiwame mode 2',c:'moderation',a:'admin'},
+{n:'antilink',d:'Antilink mode 1',c:'moderation',a:'admin'},
+{n:'antilink2',d:'Antilink mode 2',c:'moderation',a:'admin'},
+{n:'open',d:'Buka grup',c:'moderation',a:'admin'},
+{n:'close',d:'Tutup grup',c:'moderation',a:'admin'},
+{n:'hidetag',d:'Tag semua anggota',c:'moderation',a:'admin'},
+{n:'add',d:'Tambah anggota',c:'moderation',a:'admin'},
+{n:'kick',d:'Keluarkan anggota',c:'moderation',a:'admin'},
+{n:'promote',d:'Jadikan admin',c:'moderation',a:'admin'},
+{n:'demote',d:'Turunkan admin',c:'moderation',a:'admin'},
+{n:'linkgc',d:'Ambil tautan grup',c:'moderation',a:'admin'},
+{n:'resetlinkgc',d:'Reset tautan grup',c:'moderation',a:'admin'},
+{n:'deletemsg',d:'Hapus pesan (reply)',c:'moderation',a:'admin'},
+{n:'revokelinkgc',d:'Reset tautan grup',c:'moderation',a:'admin'},
+{n:'addadmin',d:'Jadikan admin',c:'moderation',a:'admin'},
+{n:'addblacklist',d:'Tambah ke blacklist',c:'moderation',a:'admin'},
+{n:'editblacklist',d:'Edit blacklist',c:'moderation',a:'admin'},
+{n:'deleteblacklist',d:'Hapus dari blacklist',c:'moderation',a:'admin'},
+{n:'viewblacklist',d:'Lihat blacklist',c:'moderation',a:'admin'},
+{n:'blacklisthelp',d:'Bantuan blacklist',c:'moderation',a:'admin'},
+{n:'autoopen',d:'Buka otomatis on/off',c:'settings',a:'admin',f:'p'},
+{n:'autoopenset',d:'Atur jam buka otomatis',c:'settings',a:'admin',f:'p'},
+{n:'autoclose',d:'Tutup otomatis on/off',c:'settings',a:'admin',f:'p'},
+{n:'autocloseset',d:'Atur jam tutup otomatis',c:'settings',a:'admin',f:'p'},
+{n:'dataorder',d:'Laporan order otomatis on/off',c:'settings',a:'admin',f:'p'},
+{n:'dataordernow',d:'Laporan order hari ini (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataorderlast',d:'Laporan order kemarin (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataorderweek',d:'Laporan order minggu ini (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataorderlastweek',d:'Laporan order minggu lalu (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataordermonth',d:'Laporan order bulan ini (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataorderlastmonth',d:'Laporan order bulan lalu (Excel)',c:'settings',a:'admin',f:'p'},
+{n:'dataorderhelp',d:'Bantuan data order',c:'settings',a:'admin',f:'p'},
+{n:'setnominal',d:'Koreksi nominal order terakhir',c:'settings',a:'admin',f:'p'},
+{n:'setppgc',d:'Ubah foto profil grup',c:'settings',a:'admin',f:'p'},
+{n:'setnamegc',d:'Ubah nama grup',c:'settings',a:'admin',f:'p'},
+{n:'setdesgc',d:'Ubah deskripsi grup',c:'settings',a:'admin',f:'p'},
+{n:'setbot',d:'Simpan konfigurasi bot',c:'settings',a:'admin'},
+{n:'afk',d:'Aktifkan status AFK',c:'utility',a:'all'},
+{n:'status',d:'Cek status teknis bot',c:'utility',a:'all'},
+{n:'p',d:'Proses pesanan (alias)',c:'transaction',a:'admin',f:'h'},
+{n:'d',d:'Selesaikan pesanan (alias)',c:'transaction',a:'admin',f:'h'},
+{n:'bot',d:'Info bot',c:'utility',a:'all'}
+];
+const CMD_CATS = [['owner','Owner & Info'],['product','Katalog Produk'],['transaction','Transaksi'],['welcome','Welcome / Goodbye'],['moderation','Moderasi Grup'],['settings','Pengaturan & Laporan'],['utility','Utilitas']];
+const CMD_ACC = {owner:'Owner',admin:'Admin Grup',all:'Semua'};
+let cmdCat = 'all';
+function renderCmds(){
+  const q = ($('#cmd-search').value || '').toLowerCase().trim();
+  const list = CMDS.filter(c => (cmdCat === 'all' || c.c === cmdCat) && (!q || ('.' + c.n + ' ' + c.d + ' ' + c.c).toLowerCase().includes(q)));
+  if (!list.length) { $('#cmd-out').innerHTML = '<div class="cmd-empty">Tidak ada perintah yang cocok dengan pencarian.</div>'; return; }
+  const collapsed = !q && window.matchMedia('(max-width:640px)').matches;
+  $('#cmd-out').innerHTML = CMD_CATS.map(([key,label]) => {
+    const rows = list.filter(c => c.c === key);
+    if (!rows.length) return '';
+    return `<details class="cmd-group"${collapsed ? '' : ' open'}><summary>${label} <span class="cnt">${rows.length} perintah</span><span class="ms">expand_more</span></summary><div class="cmd-list">` +
+      rows.map(c => `<div class="cmd"><code>.${esc(c.n)}</code><p>${esc(c.d)}</p><div class="tags">` +
+        `<span class="tag">${CMD_ACC[c.a]}</span>` +
+        ((c.f || '').includes('p') ? '<span class="tag prem">Berbayar</span>' : '') +
+        ((c.f || '').includes('h') ? '<span class="tag">Alias</span>' : '') +
+        `</div></div>`).join('') + `</div></details>`;
+  }).join('');
+}
+function renderChips(){
+  const chips = [['all','Semua',CMDS.length]].concat(CMD_CATS.map(([k,l]) => [k,l,CMDS.filter(c => c.c === k).length]));
+  $('#cmd-chips').innerHTML = chips.map(([k,l,n]) => `<button type="button" class="chip${cmdCat === k ? ' on' : ''}" data-cat="${k}">${l} (${n})</button>`).join('');
+}
+$('#cmd-chips').onclick = e => { const b = e.target.closest('.chip'); if (!b) return; cmdCat = b.dataset.cat; renderChips(); renderCmds(); };
+$('#cmd-search').oninput = renderCmds;
+renderChips(); renderCmds();
+
 // FAQ
 const FAQ = [
- ['Apakah perlu PC atau server menyala terus?','Bot bisa berjalan di VPS murah seharga 15 ribuan/bulan atau laptop biasa. Kami juga menyediakan panduan setting di Cloud gratisan (tanpa perlu kartu kredit) sehingga Anda tidak perlu repot menyalakan perangkat sendiri 24 jam.'],
- ['Bagaimana cara bot mendeteksi pembayaran?','Bot menggunakan teknologi AI OCR cerdas berkecepatan tinggi yang secara otomatis memindai gambar struk / bukti mutasi transfer yang dikirim pembeli. Bot membaca nominal transfer dan jam transaksi, lalu meminta konfirmasi admin sebelum dicatat.'],
- ['Berapa lama masa aktif sewa bot?','Tersedia paket sewa fleksibel yaitu 7 hari (Mingguan) atau 30 hari (Bulanan). Masa sewa dapat diperpanjang kapan saja tanpa menyebabkan reset data katalog, stok rental, atau nomor database pelanggan Anda.'],
- ['Apakah nomor WhatsApp saya aman dari banned?','IDAIDO BOT dilengkapi sistem keamanan berlapis: Smart Command Delay (jeda perintah otomatis), Anti-Spam protection, proteksi flood message, serta simulasi pengetikan manusia ("typing...") untuk menjaga reputasi nomor WhatsApp Anda.'],
- ['Bisa dipakai di grup atau hanya private chat?','Bisa di keduanya. Anda dapat mengundang bot ke grup komunitas toko/rental untuk merespon perintah katalog bersama, atau memfungsikannya secara privat (1-on-1 chat) untuk proses transaksi yang lebih nyaman.']
+ ['Apakah saya perlu menyiapkan VPS atau server?','Tidak perlu. Bot berjalan 24/7 di server kami. Kamu hanya perlu mengundang bot ke grup, lalu owner mengaktifkan sewa dengan perintah addsewa. Setelah itu bot langsung aktif dan siap dipakai — tanpa setting VPS, tanpa PC yang harus menyala, dan tanpa biaya server tambahan.'],
+ ['Bagaimana cara mulai menyewa bot?','Hubungi owner via WhatsApp dan pilih paket yang diinginkan. Owner akan mengundang bot ke grup kamu lalu mengaktifkan masa sewa. Bot langsung bisa dipakai pada grup tersebut.'],
+ ['Berapa lama masa aktif sewa bot?','Fleksibel. Tersedia trial 7 hari, sewa 7 hari, 1 bulan, atau durasi lebih panjang. Harga dan durasi bisa didiskusikan langsung dengan owner sesuai kebutuhan.'],
+ ['Apakah satu sewa bisa dipakai di beberapa grup?','Setiap sewa berlaku untuk satu grup. Setiap grup memiliki katalog, template, dan pengaturan sendiri. Jika kamu mengelola beberapa grup, hubungi owner untuk paket tambahan.'],
+ ['Apa yang terjadi jika masa sewa habis?','Bot berhenti melayani grup. Data grup tetap tersimpan selama 30 hari, jadi jika kamu memperpanjang dalam masa itu, katalog dan pengaturanmu kembali seperti semula.'],
+ ['Apakah data toko saya aman?','Data hanya dipakai untuk operasional grup kamu. Bot tidak membaca, merekam, atau menyimpan chat pribadi. Setiap grup memiliki data yang terpisah.'],
+ ['Bagaimana jika bot error atau tidak merespons?','Hubungi owner via WhatsApp. Kami akan memeriksa dan memperbaiki secepatnya, termasuk melakukan restart bot jika diperlukan.']
 ];
 $('#faqs').innerHTML = FAQ.map(([q,a],i) =>
   `<details${i?'':' open'}><summary>${esc(q)}<span class="ms">expand_more</span></summary><div>${esc(a)}</div></details>`).join('');

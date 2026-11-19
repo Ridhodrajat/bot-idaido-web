@@ -7,7 +7,7 @@
   <meta name="description" content="Daftar lengkap perintah IDAIDO BOT dengan contoh penggunaan dan kategori">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-owner-number="62812xxxxx" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
+<body data-owner-number="6289510214771" data-message="Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?">
   
     <header>
       <div class="container">
@@ -26,8 +26,10 @@
     <section>
       <div class="container">
         <h1>Daftar Perintah</h1>
-        <p>Berikut adalah seluruh perintah yang tersedia di IDAIDO BOT. Gunakan tombol cari untuk menemukan perintah yang Anda cari.</p>
-        
+        <p>Berikut 88 perintah yang tersedia di IDAIDO BOT. Gunakan kotak pencarian untuk menemukan perintah yang Anda cari, atau unduh daftar lengkapnya dalam format PDF.</p>
+
+        <p><a class="btn btn-secondary" href="assets/pdf/daftar-perintah-idaido-bot.pdf" download>Unduh Daftar Perintah (PDF)</a></p>
+
         <div class="search-box">
           <input type="text" id="search-commands" placeholder="Cari perintah..." aria-label="Cari perintah">
         </div>
@@ -44,59 +46,619 @@
             </thead>
             <tbody>
               
-                <tr data-category="Umum" data-access="Semua">
+                <tr data-category="Owner &amp; Info" data-access="Semua">
+                  <td><code>.menu</code></td>
+                  <td>Menampilkan menu bot</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Semua</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Semua">
+                  <td><code>.cekmenu</code></td>
+                  <td>Menampilkan menu bot (alias)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Semua</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Semua">
+                  <td><code>.owner</code></td>
+                  <td>Menampilkan kontak owner</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Semua</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.addsewa</code></td>
+                  <td>Tambah/perpanjang sewa (owner)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.trial</code></td>
+                  <td>Aktifkan trial dengan durasi bebas (owner)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.delsewa</code></td>
+                  <td>Nonaktifkan sewa (owner)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Semua">
+                  <td><code>.ceksewa</code></td>
+                  <td>Cek status sewa grup</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Semua</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.listsewa</code></td>
+                  <td>List semua rental (owner)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.setplan</code></td>
+                  <td>Ubah paket sewa: trial/paid (owner)</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Semua">
+                  <td><code>.paket</code></td>
+                  <td>Lihat paket &amp; harga sewa</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Semua</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.antiprivate</code></td>
+                  <td>Aktifkan/matikan anti private chat</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.setprivatelimit</code></td>
+                  <td>Atur batas pesan private</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.autoblock</code></td>
+                  <td>Auto-block internal on/off</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.cekantiprivate</code></td>
+                  <td>Lihat status anti private chat</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Owner &amp; Info" data-access="Owner">
+                  <td><code>.setowner</code></td>
+                  <td>Simpan nomor owner override</td>
+                  <td>Owner &amp; Info</td>
+                  <td>Owner</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Semua">
                   <td><code>.list</code></td>
                   <td>Lihat katalog produk</td>
-                  <td>Umum</td>
+                  <td>Katalog Produk</td>
                   <td>Semua</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
-                  <td><code>.addlist netflix | Langganan Netflix 30 hari</code></td>
-                  <td>Tambah produk ke katalog</td>
-                  <td>Umum</td>
-                  <td>Semua</td>
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.addlist</code></td>
+                  <td>Tambah produk</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.updatelist</code></td>
+                  <td>Ubah info produk</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.renamelist</code></td>
+                  <td>Ganti nama produk</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.dellist</code></td>
+                  <td>Hapus produk</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.setproses</code></td>
+                  <td>Pilih template proses</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.changeproses</code></td>
+                  <td>Ubah template proses</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.delsetproses</code></td>
+                  <td>Reset template proses</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.setdone</code></td>
+                  <td>Pilih template selesai</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.changedone</code></td>
+                  <td>Ubah template selesai</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.delsetdone</code></td>
+                  <td>Reset template selesai</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
                   <td><code>.proses</code></td>
-                  <td>Tandai pesanan sedang diproses (balas chat pelanggan)</td>
-                  <td>Umum</td>
+                  <td>Kelola/kirim template proses</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.done</code></td>
+                  <td>Kelola/kirim template selesai</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.setopen</code></td>
+                  <td>Pilih template pesan open</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.setclose</code></td>
+                  <td>Pilih template pesan close</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.setlisttemplate</code></td>
+                  <td>Pilih template katalog</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Semua">
+                  <td><code>.previewlist</code></td>
+                  <td>Preview katalog</td>
+                  <td>Katalog Produk</td>
                   <td>Semua</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
-                  <td><code>.done 50000</code></td>
-                  <td>Tandai pesanan selesai + catat nominal (balas chat pelanggan)</td>
-                  <td>Umum</td>
-                  <td>Semua</td>
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.setlistheader</code></td>
+                  <td>Atur header katalog manual <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.setlistfooter</code></td>
+                  <td>Atur footer katalog manual <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.resetlisttemplate</code></td>
+                  <td>Reset template katalog</td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.exportlist</code></td>
+                  <td>Export katalog ke Excel/Teks <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Katalog Produk" data-access="Admin Grup">
+                  <td><code>.importlist</code></td>
+                  <td>Import katalog dari file <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Katalog Produk</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.welcome</code></td>
+                  <td>Kelola welcome (on/off/preview)</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.goodbye</code></td>
+                  <td>Kelola goodbye (on/off/preview)</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.setwelcome</code></td>
+                  <td>Pilih/atur template welcome</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.changewelcome</code></td>
+                  <td>Ubah template welcome</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.delsetwelcome</code></td>
+                  <td>Reset template welcome</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.setleft</code></td>
+                  <td>Pilih/atur template goodbye</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.changeleft</code></td>
+                  <td>Ubah template goodbye</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Welcome / Goodbye" data-access="Admin Grup">
+                  <td><code>.delsetleft</code></td>
+                  <td>Reset template goodbye</td>
+                  <td>Welcome / Goodbye</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.antiwame</code></td>
+                  <td>Antiwame mode 1</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.antiwame2</code></td>
+                  <td>Antiwame mode 2</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.antilink</code></td>
+                  <td>Antilink mode 1</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.antilink2</code></td>
+                  <td>Antilink mode 2</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.open</code></td>
+                  <td>Buka grup</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.close</code></td>
+                  <td>Tutup grup</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.hidetag</code></td>
+                  <td>Tag semua anggota</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.add</code></td>
+                  <td>Tambah anggota</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.kick</code></td>
+                  <td>Keluarkan anggota</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.promote</code></td>
+                  <td>Jadikan admin</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.demote</code></td>
+                  <td>Turunkan admin</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.linkgc</code></td>
+                  <td>Ambil tautan grup</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.resetlinkgc</code></td>
+                  <td>Reset tautan grup</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.deletemsg</code></td>
+                  <td>Hapus pesan (reply)</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.revokelinkgc</code></td>
+                  <td>Reset tautan grup</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.addadmin</code></td>
+                  <td>Jadikan admin</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.addblacklist</code></td>
+                  <td>Tambah ke blacklist</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.editblacklist</code></td>
+                  <td>Edit blacklist</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.deleteblacklist</code></td>
+                  <td>Hapus dari blacklist</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.viewblacklist</code></td>
+                  <td>Lihat blacklist</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Moderasi Grup" data-access="Admin Grup">
+                  <td><code>.blacklisthelp</code></td>
+                  <td>Bantuan blacklist</td>
+                  <td>Moderasi Grup</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.autoopen</code></td>
+                  <td>Buka otomatis on/off <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.autoopenset</code></td>
+                  <td>Atur jam buka otomatis <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.autoclose</code></td>
+                  <td>Tutup otomatis on/off <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.autocloseset</code></td>
+                  <td>Atur jam tutup otomatis <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorder</code></td>
+                  <td>Laporan order otomatis on/off <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
                   <td><code>.dataordernow</code></td>
-                  <td>Laporan order hari ini ke Excel</td>
-                  <td>Umum</td>
+                  <td>Laporan order hari ini (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorderlast</code></td>
+                  <td>Laporan order kemarin (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorderweek</code></td>
+                  <td>Laporan order minggu ini (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorderlastweek</code></td>
+                  <td>Laporan order minggu lalu (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataordermonth</code></td>
+                  <td>Laporan order bulan ini (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorderlastmonth</code></td>
+                  <td>Laporan order bulan lalu (Excel) <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.dataorderhelp</code></td>
+                  <td>Bantuan data order <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.setnominal</code></td>
+                  <td>Koreksi nominal order terakhir <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.setppgc</code></td>
+                  <td>Ubah foto profil grup <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.setnamegc</code></td>
+                  <td>Ubah nama grup <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.setdesgc</code></td>
+                  <td>Ubah deskripsi grup <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small></td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Pengaturan &amp; Laporan" data-access="Admin Grup">
+                  <td><code>.setbot</code></td>
+                  <td>Simpan konfigurasi bot</td>
+                  <td>Pengaturan &amp; Laporan</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Utilitas" data-access="Semua">
+                  <td><code>.afk</code></td>
+                  <td>Aktifkan status AFK</td>
+                  <td>Utilitas</td>
                   <td>Semua</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
-                  <td><code>.addblacklist 62812xxxx Nama</code></td>
-                  <td>Tambah nomor ke blacklist</td>
-                  <td>Umum</td>
+                <tr data-category="Utilitas" data-access="Semua">
+                  <td><code>.status</code></td>
+                  <td>Cek status teknis bot</td>
+                  <td>Utilitas</td>
                   <td>Semua</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
-                  <td><code>.autoopen on</code></td>
-                  <td>Aktifkan buka grup otomatis</td>
-                  <td>Umum</td>
-                  <td>Semua</td>
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.p</code></td>
+                  <td>Proses pesanan (alias)</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
                 </tr>
               
-                <tr data-category="Umum" data-access="Semua">
-                  <td><code>.autoopenset 08:00</code></td>
-                  <td>Set jam buka otomatis</td>
-                  <td>Umum</td>
+                <tr data-category="Transaksi" data-access="Admin Grup">
+                  <td><code>.d</code></td>
+                  <td>Selesaikan pesanan (alias)</td>
+                  <td>Transaksi</td>
+                  <td>Admin Grup</td>
+                </tr>
+              
+                <tr data-category="Utilitas" data-access="Semua">
+                  <td><code>.bot</code></td>
+                  <td>Info bot</td>
+                  <td>Utilitas</td>
                   <td>Semua</td>
                 </tr>
               
@@ -128,7 +690,7 @@
           <div class="footer-section">
             <h3>Kontak</h3>
             <ul>
-              <li><a href="https://wa.me/62812" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="https://wa.me/6289510214771" target="_blank" rel="noopener">WhatsApp</a></li>
             </ul>
           </div>
           <div class="footer-section">

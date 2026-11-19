@@ -36,3 +36,6 @@ Thumbs.db
 tmp/
 temp/
 *.zip
+
+# Generated print source for the commands PDF
+tools/perintah-print.html

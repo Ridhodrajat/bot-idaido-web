@@ -10,6 +10,30 @@ const path = require("path");
 
 const content = require("./content.js");
 
+// Registry perintah bot (hasil parse dari src/commands/index.ts)
+let commandRegistry = [];
+try {
+  commandRegistry = require("./commands-data.json");
+} catch (err) {
+  console.warn("⚠️  commands-data.json tidak ditemukan, memakai contoh perintah dari content.js");
+}
+
+const CATEGORY_LABELS = {
+  owner: "Owner & Info",
+  product: "Katalog Produk",
+  transaction: "Transaksi",
+  welcome: "Welcome / Goodbye",
+  moderation: "Moderasi Grup",
+  settings: "Pengaturan & Laporan",
+  utility: "Utilitas",
+};
+
+function accessLabel(cmd) {
+  if (cmd.owner) return "Owner";
+  if (cmd.admin) return "Admin Grup";
+  return "Semua";
+}
+
 // Helper: Sanitize HTML
 function escapeHtml(text) {
   if (!text) return "";
@@ -296,14 +320,21 @@ function generateIndex() {
 
 // ===== PAGE: COMMAND =====
 function generateCommand() {
-  // Note: Perintah akan dibaca dari registry bot nanti
-  // Untuk sekarang, gunakan data placeholder dari content.commandExamples
-  const commands = Object.entries(content.commandExamples).map(([cmd, desc]) => ({
-    command: cmd,
-    description: desc,
-    category: "Umum",
-    access: "Semua",
-  }));
+  const commands = commandRegistry.length
+    ? commandRegistry.map((cmd) => ({
+        command: "." + cmd.name,
+        description: cmd.desc || "",
+        category: CATEGORY_LABELS[cmd.cat] || "Umum",
+        access: accessLabel(cmd),
+        premium: Boolean(cmd.premium),
+      }))
+    : Object.entries(content.commandExamples).map(([cmd, desc]) => ({
+        command: cmd,
+        description: desc,
+        category: "Umum",
+        access: "Semua",
+        premium: false,
+      }));
 
   const html = `<!DOCTYPE html>
 <html lang="${content.site.language}">
@@ -320,8 +351,10 @@ function generateCommand() {
     <section>
       <div class="container">
         <h1>Daftar Perintah</h1>
-        <p>Berikut adalah seluruh perintah yang tersedia di ${escapeHtml(content.brand.name)}. Gunakan tombol cari untuk menemukan perintah yang Anda cari.</p>
-        
+        <p>Berikut ${commands.length} perintah yang tersedia di ${escapeHtml(content.brand.name)}. Gunakan kotak pencarian untuk menemukan perintah yang Anda cari, atau unduh daftar lengkapnya dalam format PDF.</p>
+
+        <p><a class="btn btn-secondary" href="assets/pdf/daftar-perintah-idaido-bot.pdf" download>Unduh Daftar Perintah (PDF)</a></p>
+
         <div class="search-box">
           <input type="text" id="search-commands" placeholder="Cari perintah..." aria-label="Cari perintah">
         </div>
@@ -342,7 +375,7 @@ function generateCommand() {
                   (cmd) => `
                 <tr data-category="${escapeHtml(cmd.category)}" data-access="${escapeHtml(cmd.access)}">
                   <td><code>${escapeHtml(cmd.command)}</code></td>
-                  <td>${escapeHtml(cmd.description)}</td>
+                  <td>${escapeHtml(cmd.description)}${cmd.premium ? ' <small style="display:inline-block;padding:1px 5px;border-radius:3px;background:#ccfbf1;color:#0f766e;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em">Berbayar</small>' : ""}</td>
                   <td>${escapeHtml(cmd.category)}</td>
                   <td>${escapeHtml(cmd.access)}</td>
                 </tr>
@@ -583,11 +616,16 @@ function generate() {
     console.log(`✅ Generated: public/${filename}`);
   });
 
+  // index.html adalah static file mandiri, salin apa adanya ke public/
+  fs.copyFileSync(path.join(__dirname, "index.html"), path.join(publicDir, "index.html"));
+  console.log("✅ Copied: public/index.html");
+
   // Copy assets
   const assetDirs = [
     { src: "assets/css", dest: "public/assets/css" },
     { src: "assets/js", dest: "public/assets/js" },
     { src: "assets/img", dest: "public/assets/img" },
+    { src: "assets/pdf", dest: "public/assets/pdf" },
   ];
 
   assetDirs.forEach(({ src, dest }) => {

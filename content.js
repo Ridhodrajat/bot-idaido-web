@@ -14,54 +14,39 @@ module.exports = {
   brand: {
     name: "IDAIDO BOT",
     tagline: "Bot WhatsApp terpercaya untuk jualan online",
-    ownerNumber: process.env.OWNER_NUMBER || "62812xxxxx", // Ganti dengan nomor sebenarnya
+    ownerNumber: process.env.OWNER_NUMBER || "6289510214771",
     whatsappMessage: "Halo, saya tertarik menyewa IDAIDO BOT. Bisa bantu?",
   },
 
-  // Paket harga (TODO: ganti dengan harga asli)
+  // Paket harga
   packages: [
     {
-      name: "Starter",
-      duration: "30 hari",
-      price: "Rp 50.000",
+      name: "Mingguan",
+      duration: "7 hari",
+      price: "Rp 5.000",
       popular: false,
       features: [
-        "Multi-grup (hingga 5 grup)",
-        "Katalog produk dasar",
-        "Moderasi grup otomatis",
+        "Balasan tak terbatas",
+        "Semua fitur terbuka",
+        "Katalog produk + template pesan",
         "Laporan order Excel",
-        "Support WhatsApp",
+        "Moderasi grup",
       ],
-      cta: "Pesan Sekarang",
+      cta: "Pilih Paket Mingguan",
     },
     {
-      name: "Professional",
+      name: "Bulanan",
       duration: "30 hari",
-      price: "Rp 100.000",
+      price: "Rp 10.000",
       popular: true,
       features: [
-        "Multi-grup (hingga 20 grup)",
-        "Katalog produk lanjutan",
-        "Moderasi + antilink otomatis",
-        "Laporan detail & analisis",
-        "Jadwal otomatis (buka/tutup)",
-        "Support prioritas",
+        "Semua fitur paket mingguan",
+        "Hemat dibanding sewa per minggu",
+        "Data katalog & pengaturan tersimpan",
+        "Support langsung dari owner",
+        "Bisa diperpanjang kapan saja",
       ],
-      cta: "Pesan Sekarang",
-    },
-    {
-      name: "Enterprise",
-      duration: "30 hari",
-      price: "Hubungi Owner",
-      popular: false,
-      features: [
-        "Multi-grup unlimited",
-        "Semua fitur Professional",
-        "Custom command",
-        "Integrasi database (opsional)",
-        "Dedicated support",
-      ],
-      cta: "Hubungi Owner",
+      cta: "Pilih Paket Bulanan",
     },
   ],
 
@@ -95,7 +80,7 @@ module.exports = {
     {
       icon: "⚡",
       title: "Perintah Lengkap",
-      description: "82+ perintah siap pakai untuk semua kebutuhan jualan",
+      description: "88 perintah siap pakai untuk semua kebutuhan jualan",
     },
   ],
 
@@ -130,7 +115,7 @@ module.exports = {
 
   // Statistik (opsional untuk hero)
   stats: [
-    { label: "Perintah", value: "82+" },
+    { label: "Perintah", value: "88" },
     { label: "Kategori", value: "7" },
     { label: "Multi-Grup", value: "Unlimited" },
   ],
@@ -147,111 +132,115 @@ module.exports = {
     },
     {
       q: "Bisa dicoba dulu gratis?",
-      a: "Hubungi owner untuk demo atau trial singkat. Tergantung ketersediaan.",
+      a: "Bisa. Tersedia trial gratis 7 hari dengan kuota 300 balasan per hari dan fitur premium terkunci. Hubungi owner untuk mengaktifkannya.",
     },
     {
       q: "Bot masih aktif setelah habis masa sewa?",
-      a: "Tidak. Setelah masa sewa habis, bot otomatis leave dari grup Anda.",
+      a: "Tidak. Setelah masa sewa habis, bot berhenti melayani grup. Data grup tetap tersimpan selama 30 hari jika kamu memperpanjang.",
     },
   ],
 
   // FAQ lengkap (di halaman panduan)
   faqFull: [
     {
-      q: "Apakah bot ini aman digunakan?",
-      a: "Bot IDAIDO menggunakan library WhatsApp yang tidak resmi, bukan API resmi. Keamanan dan kestabilan bergantung pada perubahan WhatsApp. Kami rekomendasikan:\n\n• Gunakan bot di akun admin, bukan akun pribadi utama\n• Jangan bagikan sesi bot ke orang lain\n• Matikan 2FA jika menyebabkan masalah koneksi\n• Setujui disclaimer bahwa ini produk tidak resmi WhatsApp",
+      q: "Apakah saya perlu menyiapkan VPS atau server?",
+      a: "Tidak perlu. Bot berjalan 24/7 di server kami. Kamu hanya perlu mengundang bot ke grup, lalu owner mengaktifkan sewa dengan perintah addsewa. Setelah itu bot langsung aktif tanpa setting teknis dan tanpa biaya server tambahan.",
     },
     {
-      q: "Bot bisa digunakan di berapa grup?",
-      a: "Tergantung paket:\n\n• Starter: hingga 5 grup\n• Professional: hingga 20 grup\n• Enterprise: unlimited\n\nSetiap grup bisa diatur terpisah dengan perintah konfigurasi.",
-    },
-    {
-      q: "Bagaimana cara sewa?",
-      a: "Proses sewa:\n\n1. Pilih paket yang sesuai\n2. Hubungi owner via tombol WhatsApp di website atau chat langsung\n3. Diskusikan detail (durasi, grup, custom request)\n4. Lakukan pembayaran\n5. Owner undang bot ke grup Anda\n6. Ikuti panduan setup\n\nSetelah itu bot siap digunakan.",
+      q: "Bagaimana cara mulai menyewa bot?",
+      a: "Proses sewa:\n\n1. Pilih paket atau minta trial 7 hari\n2. Hubungi owner via WhatsApp\n3. Owner mengundang bot ke grup kamu\n4. Owner mengaktifkan masa sewa\n5. Bot langsung siap dipakai\n\nTidak ada instalasi yang perlu kamu lakukan sendiri.",
     },
     {
       q: "Berapa lama durasi sewa?",
-      a: "Durasi sewa fleksibel, contoh:\n\n• 7 hari (1 minggu)\n• 30 hari (1 bulan)\n• 60 hari (2 bulan)\n• Atau durasi custom sesuai negosiasi\n\nSetelah habis, bot otomatis leave. Bisa perpanjang kapan saja.",
+      a: "Fleksibel:\n\n• Trial gratis 7 hari (kuota 300 balasan/hari, fitur premium terkunci)\n• Sewa 7 hari\n• Sewa 30 hari\n• Durasi lebih panjang sesuai kesepakatan\n\nHarga dan durasi bisa didiskusikan langsung dengan owner.",
     },
     {
-      q: "Apa yang terjadi kalau bot error atau nggak merespons?",
-      a: "Hubungi owner segera via WhatsApp. Owner akan:\n\n• Cek error log bot\n• Restart bot jika perlu\n• Lakukan troubleshooting\n• Ganti bot dengan yang baru jika tidak bisa diperbaiki\n\nGaransi uptime 95% (bisa down untuk update/maintenance).",
+      q: "Satu sewa untuk berapa grup?",
+      a: "Setiap sewa berlaku untuk satu grup. Setiap grup punya katalog, template, dan pengaturan sendiri. Jika kamu mengelola beberapa grup, hubungi owner untuk paket tambahan.",
     },
     {
-      q: "Bisa ganti nomor bot atau induk?",
-      a: "Bisa, tapi perlu koordinasi dengan owner:\n\n• Ganti nomor induk (pemberi perintah) bisa di tengah masa sewa\n• Bot perlu restart dan re-login\n• Hubungi owner untuk proses gangti nomor",
+      q: "Apa yang terjadi setelah masa sewa habis?",
+      a: "Bot berhenti melayani grup. Data grup tetap tersimpan selama 30 hari, jadi jika kamu memperpanjang dalam masa itu katalog dan pengaturanmu kembali seperti semula.",
     },
     {
-      q: "Harga bisa berubah nggak?",
-      a: "Ya, harga di website bisa berubah kapan saja tanpa notifikasi. Jika Anda sudah deal dengan owner pada harga tertentu, harga tersebut berlaku untuk sewa Anda.",
+      q: "Apa yang terjadi kalau bot error atau tidak merespons?",
+      a: "Hubungi owner via WhatsApp. Kami akan memeriksa, memperbaiki, dan melakukan restart bot jika diperlukan.",
+    },
+    {
+      q: "Apakah data toko saya aman?",
+      a: "Data hanya dipakai untuk operasional grup kamu. Bot tidak membaca atau menyimpan chat pribadi, dan setiap grup memiliki data yang terpisah.",
     },
     {
       q: "Apakah ada biaya tambahan selain sewa?",
-      a: "Tidak ada biaya tambahan dari sisi bot. Biaya yang mungkin ada:\n\n• Biaya transfer (bank/e-wallet)\n• Biaya internet untuk menjalankan induk bot (jika pakai komputer/VPS pribadi)\n\nSemuanya ditanggung penyewa.",
+      a: "Tidak ada. Biaya sewa sudah mencakup server dan operasional bot. Biaya transfer bank atau e-wallet ditanggung penyewa.",
     },
   ],
 
   // Contoh perintah (di halaman perintah, jika belum ada di registry)
   commandExamples: {
+    ".menu": "Tampilkan menu bot",
     ".list": "Lihat katalog produk",
-    ".addlist netflix | Langganan Netflix 30 hari": "Tambah produk ke katalog",
-    ".proses": "Tandai pesanan sedang diproses (balas chat pelanggan)",
-    ".done 50000": "Tandai pesanan selesai + catat nominal (balas chat pelanggan)",
-    ".dataordernow": "Laporan order hari ini ke Excel",
-    ".addblacklist 62812xxxx Nama": "Tambah nomor ke blacklist",
-    ".autoopen on": "Aktifkan buka grup otomatis",
-    ".autoopenset 08:00": "Set jam buka otomatis",
+    ".addlist": "Tambah produk ke katalog",
+    ".previewlist": "Pratinjau tampilan katalog",
+    ".p": "Tandai pesanan sedang diproses (balas chat pelanggan)",
+    ".d 50000": "Tandai pesanan selesai + catat nominal (balas chat pelanggan)",
+    ".dataordernow": "Unduh laporan order hari ini (Excel)",
+    ".dataorderweek": "Unduh laporan order minggu ini (Excel)",
+    ".addblacklist": "Tambah nomor ke blacklist",
+    ".antilink": "Aktifkan antilink mode 1",
+    ".autoopen": "Aktifkan buka grup otomatis",
+    ".autoopenset 08:00": "Atur jam buka otomatis",
+    ".welcome": "Kelola pesan sambutan anggota baru",
+    ".ceksewa": "Cek status sewa grup",
   },
 
   // Panduan setup (di halaman panduan)
   setupGuide: {
     quickstart: `
-## Quickstart untuk Admin Grup
+## Mulai Menggunakan Bot
 
 Sebelum mulai, pastikan:
-1. **Bot sudah di-invite ke grup** oleh owner
-2. **Anda adalah admin grup** (atau buat grup baru dengan bot)
-3. **Bot adalah admin** (berikan akses admin ke bot)
+1. **Bot sudah diundang ke grup** oleh owner
+2. **Masa sewa sudah aktif** (owner mengaktifkan dengan \`.addsewa\`)
+3. **Anda admin grup**, dan **bot juga dijadikan admin** agar bisa moderasi dan mengubah info grup
 
-### Langkah 1: Jadikan Bot Admin
-Kirim perintah ke grup:
+### Langkah 1: Buka Menu
+Kirim perintah berikut di grup:
 \`\`\`
-.setadmin on
-\`\`\`
-
-### Langkah 2: Setup Katalog
-Buat katalog produk:
-\`\`\`
-.addlist Netflix | Langganan Netflix 30 hari | 50000
-.addlist Spotify | Langganan Spotify 1 bulan | 30000
+.menu
 \`\`\`
 
-Lihat katalog:
+### Langkah 2: Isi Katalog
+Kirim \`.addlist\` lalu ikuti petunjuk bot untuk mengisi nama, harga, dan foto produk.
+Cek hasilnya dengan:
 \`\`\`
 .list
+.previewlist
 \`\`\`
 
-### Langkah 3: Setup Template Pesan
-Buat template untuk status pesanan:
+### Langkah 3: Pilih Template Pesan
+Pilih gaya pesan proses dan pesan selesai:
 \`\`\`
-.tempproses Template: Pesanan sedang kami proses, mohon ditunggu ya 🙏
-.tempdone Template: Pesanan selesai! Akun sudah dikirim 🎉
+.setproses
+.setdone
+\`\`\`
+Pesan buka dan tutup grup diatur dengan \`.setopen\` dan \`.setclose\`.
+
+### Langkah 4: Pesan Sambutan
+Kelola welcome dan goodbye:
+\`\`\`
+.welcome
+.goodbye
+.setwelcome
+.setleft
 \`\`\`
 
-### Langkah 4: Setup Jadwal
-Setup jam buka dan tutup otomatis:
+### Langkah 5: Moderasi Grup
+Aktifkan proteksi grup dan catat nomor pengganggu:
 \`\`\`
-.autoopen on
-.autoopenset 08:00
-.autoclose on
-.autocloseset 22:00
-\`\`\`
-
-### Langkah 5: Aktifkan Moderasi
-Setup antilink dan blacklist:
-\`\`\`
-.antilink on
-.addblacklist 62812xxxx Nama Penipu
+.antilink
+.antiwame
+.addblacklist
 \`\`\`
 
 Selesai! Bot siap beroperasi.
@@ -259,28 +248,28 @@ Selesai! Bot siap beroperasi.
     dailyWorkflow: `
 ## Alur Kerja Harian
 
-### Pagi (Saat Buka Grup)
-1. Bot otomatis buka grup (jika jadwal aktif)
-2. Kirim sapaan ke group dengan \`.announce Pagi! Grup sudah dibuka\`
-
 ### Saat Ada Pesanan
-1. Pelanggan chat atau kirim ke grup
-2. Anda balas chat pelanggan
-3. Kirim perintah \`.proses\` (balas chat pelanggan)
-4. Template otomatis terkirim
+1. Pelanggan mengetik \`.list\` atau nama produk di grup
+2. Anda balas chat pelanggan lalu kirim \`.p\`
+3. Bot mengirim template status diproses ke grup
 
 ### Saat Pesanan Selesai
 1. Kirim akun/barang ke pelanggan
-2. Kirim perintah \`.done 50000\` (balas chat dengan nominal)
-3. Bot otomatis catat ke laporan
+2. Balas chat pelanggan lalu kirim \`.d 25000\` sesuai nominal order
+3. Bot mengirim nota selesai dan mencatat order ke laporan
 
-### Malam (Saat Tutup Grup)
-1. Bot otomatis tutup grup (jika jadwal aktif)
-2. Laporan otomatis di-generate ke Excel dengan \`.dataordernow\`
+### Buka & Tutup Grup
+1. Buka grup dengan \`.open\`, tutup dengan \`.close\`
+2. Atau aktifkan jadwal otomatis (\`.autoopen\`, \`.autoclose\`) agar bot mengunci grup sesuai jam operasional
 
-### Akhir Hari
-1. Ekspor laporan dengan \`.dataorderweek\` atau \`.dataordermonth\`
-2. Rekap omset dan pesanan
+### Laporan
+Unduh rekap order dalam format Excel (.xlsx):
+\`\`\`
+.dataordernow
+.dataorderlast
+.dataorderweek
+.dataordermonth
+\`\`\`
     `,
   },
 
@@ -306,17 +295,17 @@ Selesai! Bot siap beroperasi.
     {
       problem: "Laporan order tidak tergenerate",
       solutions: [
-        "Pastikan Anda mengirim perintah \\.done dengan benar",
-        "Tunggu beberapa saat, bot mungkin sedang memproses",
-        "Cek apakah bot bisa akses folder download (untuk file Excel)",
+        "Pastikan pesanan ditandai selesai dengan \\.d dan nominalnya ikut dikirim",
+        "Perintah laporan hanya tersedia di paket berbayar, bukan trial",
+        "Tunggu beberapa saat, bot mungkin sedang memproses file Excel",
       ],
     },
     {
       problem: "Harga di katalog tidak terupdate",
       solutions: [
-        "Gunakan \\.editlist untuk edit harga",
-        "Format: \\.editlist Netflix | Harga Baru | 60000",
-        "Pastikan Anda adalah owner atau yang punya akses edit",
+        "Gunakan \\.updatelist atau \\.renamelist pada produk yang ingin diubah",
+        "Pastikan Anda admin grup dan bot juga admin",
+        "Cek hasil perubahan dengan \\.list atau \\.previewlist",
       ],
     },
   ],
@@ -324,36 +313,36 @@ Selesai! Bot siap beroperasi.
   // Changelog
   changelog: [
     {
-      version: "2.5.0",
+      version: "1.1.0",
+      date: "17 November 2026",
+      changes: [
+        "Sistem paket trial dan berbayar, dengan kuota balasan harian pada trial",
+        "Fitur premium terkunci di trial dan terbuka otomatis di paket berbayar",
+        "Perintah owner baru: .trial, .setplan, dan .paket",
+        "Harga sewa Rp5.000 / 7 hari dan Rp10.000 / 30 hari",
+        "Perbaikan antilink dan antiwame sesuai mode peringatan atau kick",
+        "Menu menyesuaikan hak akses anggota, admin, dan owner",
+        "Perbaikan laporan Excel dalam membaca nomor telepon asli (LID WhatsApp)",
+      ],
+    },
+    {
+      version: "1.0.0",
       date: "18 Oktober 2026",
       changes: [
-        "✨ Fitur baru: Template nota custom dengan dynamic tags",
-        "🐛 Perbaikan: Antilink detection lebih akurat",
-        "⚡ Performa: Optimize command parsing lebih cepat",
-      ],
-    },
-    {
-      version: "2.4.5",
-      date: "10 Oktober 2026",
-      changes: [
-        "🎨 UI improvement: Katalog tampilan lebih rapi",
-        "🔒 Keamanan: Blacklist system lebih ketat",
-      ],
-    },
-    {
-      version: "2.4.0",
-      date: "1 Oktober 2026",
-      changes: [
-        "✨ Fitur baru: Jadwal otomatis buka/tutup grup",
-        "📊 Laporan order ke Excel support",
+        "Rilis pertama: katalog produk dengan template teks dan foto",
+        "Pencatatan transaksi proses dan selesai beserta nominal order",
+        "Laporan order harian, mingguan, dan bulanan dalam format Excel",
+        "Moderasi grup: antilink, antiwame, hidetag, dan blacklist",
+        "Welcome dan goodbye kustom dengan variabel dinamis",
+        "Sistem sewa per grup dengan pengingat menjelang kedaluwarsa",
       ],
     },
   ],
 
   // Uptime & stats
   stats_extended: {
-    uptime: "99.9%",
-    activeStores: "500+",
+    uptime: "24/7",
+    commands: "88",
     supportHours: "24/7",
   },
 

@@ -1,0 +1,882 @@
+[
+ {
+  "name": "menu",
+  "desc": "Menampilkan menu bot",
+  "cat": "owner",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "cekmenu",
+  "desc": "Menampilkan menu bot (alias)",
+  "cat": "owner",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": true,
+  "premium": false
+ },
+ {
+  "name": "owner",
+  "desc": "Menampilkan kontak owner",
+  "cat": "owner",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "addsewa",
+  "desc": "Tambah/perpanjang sewa (owner)",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "trial",
+  "desc": "Aktifkan trial dengan durasi bebas (owner)",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "delsewa",
+  "desc": "Nonaktifkan sewa (owner)",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "ceksewa",
+  "desc": "Cek status sewa grup",
+  "cat": "owner",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "listsewa",
+  "desc": "List semua rental (owner)",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setplan",
+  "desc": "Ubah paket sewa: trial/paid (owner)",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "paket",
+  "desc": "Lihat paket & harga sewa",
+  "cat": "owner",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "antiprivate",
+  "desc": "Aktifkan/matikan anti private chat",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setprivatelimit",
+  "desc": "Atur batas pesan private",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "autoblock",
+  "desc": "Auto-block internal on/off",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "cekantiprivate",
+  "desc": "Lihat status anti private chat",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setowner",
+  "desc": "Simpan nomor owner override",
+  "cat": "owner",
+  "owner": true,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "list",
+  "desc": "Lihat katalog produk",
+  "cat": "product",
+  "owner": false,
+  "admin": false,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "addlist",
+  "desc": "Tambah produk",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "updatelist",
+  "desc": "Ubah info produk",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "renamelist",
+  "desc": "Ganti nama produk",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "dellist",
+  "desc": "Hapus produk",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setproses",
+  "desc": "Pilih template proses",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "changeproses",
+  "desc": "Ubah template proses",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "delsetproses",
+  "desc": "Reset template proses",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setdone",
+  "desc": "Pilih template selesai",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "changedone",
+  "desc": "Ubah template selesai",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "delsetdone",
+  "desc": "Reset template selesai",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "proses",
+  "desc": "Kelola/kirim template proses",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "done",
+  "desc": "Kelola/kirim template selesai",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setopen",
+  "desc": "Pilih template pesan open",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setclose",
+  "desc": "Pilih template pesan close",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setlisttemplate",
+  "desc": "Pilih template katalog",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "previewlist",
+  "desc": "Preview katalog",
+  "cat": "product",
+  "owner": false,
+  "admin": false,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setlistheader",
+  "desc": "Atur header katalog manual",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setlistfooter",
+  "desc": "Atur footer katalog manual",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "resetlisttemplate",
+  "desc": "Reset template katalog",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "exportlist",
+  "desc": "Export katalog ke Excel/Teks",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "importlist",
+  "desc": "Import katalog dari file",
+  "cat": "product",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "welcome",
+  "desc": "Kelola welcome (on/off/preview)",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "goodbye",
+  "desc": "Kelola goodbye (on/off/preview)",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setwelcome",
+  "desc": "Pilih/atur template welcome",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "changewelcome",
+  "desc": "Ubah template welcome",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "delsetwelcome",
+  "desc": "Reset template welcome",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "setleft",
+  "desc": "Pilih/atur template goodbye",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "changeleft",
+  "desc": "Ubah template goodbye",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "delsetleft",
+  "desc": "Reset template goodbye",
+  "cat": "welcome",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "antiwame",
+  "desc": "Antiwame mode 1",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "antiwame2",
+  "desc": "Antiwame mode 2",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "antilink",
+  "desc": "Antilink mode 1",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "antilink2",
+  "desc": "Antilink mode 2",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "open",
+  "desc": "Buka grup",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "close",
+  "desc": "Tutup grup",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "hidetag",
+  "desc": "Tag semua anggota",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "add",
+  "desc": "Tambah anggota",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "kick",
+  "desc": "Keluarkan anggota",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "promote",
+  "desc": "Jadikan admin",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "demote",
+  "desc": "Turunkan admin",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "linkgc",
+  "desc": "Ambil tautan grup",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "resetlinkgc",
+  "desc": "Reset tautan grup",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "deletemsg",
+  "desc": "Hapus pesan (reply)",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "revokelinkgc",
+  "desc": "Reset tautan grup",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "addadmin",
+  "desc": "Jadikan admin",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "addblacklist",
+  "desc": "Tambah ke blacklist",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "editblacklist",
+  "desc": "Edit blacklist",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "deleteblacklist",
+  "desc": "Hapus dari blacklist",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "viewblacklist",
+  "desc": "Lihat blacklist",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "blacklisthelp",
+  "desc": "Bantuan blacklist",
+  "cat": "moderation",
+  "owner": false,
+  "admin": true,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "autoopen",
+  "desc": "Buka otomatis on/off",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "autoopenset",
+  "desc": "Atur jam buka otomatis",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "autoclose",
+  "desc": "Tutup otomatis on/off",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "autocloseset",
+  "desc": "Atur jam tutup otomatis",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorder",
+  "desc": "Laporan order otomatis on/off",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataordernow",
+  "desc": "Laporan order hari ini (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorderlast",
+  "desc": "Laporan order kemarin (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorderweek",
+  "desc": "Laporan order minggu ini (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorderlastweek",
+  "desc": "Laporan order minggu lalu (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataordermonth",
+  "desc": "Laporan order bulan ini (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorderlastmonth",
+  "desc": "Laporan order bulan lalu (Excel)",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "dataorderhelp",
+  "desc": "Bantuan data order",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": false,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setnominal",
+  "desc": "Koreksi nominal order terakhir",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setppgc",
+  "desc": "Ubah foto profil grup",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setnamegc",
+  "desc": "Ubah nama grup",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setdesgc",
+  "desc": "Ubah deskripsi grup",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": true
+ },
+ {
+  "name": "setbot",
+  "desc": "Simpan konfigurasi bot",
+  "cat": "settings",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "afk",
+  "desc": "Aktifkan status AFK",
+  "cat": "utility",
+  "owner": false,
+  "admin": false,
+  "group": true,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "status",
+  "desc": "Cek status teknis bot",
+  "cat": "utility",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ },
+ {
+  "name": "p",
+  "desc": "Proses pesanan (alias)",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": true,
+  "premium": false
+ },
+ {
+  "name": "d",
+  "desc": "Selesaikan pesanan (alias)",
+  "cat": "transaction",
+  "owner": false,
+  "admin": true,
+  "group": true,
+  "hidden": true,
+  "premium": false
+ },
+ {
+  "name": "bot",
+  "desc": "Info bot",
+  "cat": "utility",
+  "owner": false,
+  "admin": false,
+  "group": false,
+  "hidden": false,
+  "premium": false
+ }
+]

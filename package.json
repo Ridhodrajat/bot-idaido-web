@@ -5,6 +5,7 @@
   "main": "generate.js",
   "scripts": {
     "generate": "node generate.js",
+    "pdf": "node tools/generate-commands-pdf.js",
     "dev": "node generate.js && echo 'HTML files generated in public/'",
     "build": "node generate.js"
   },
