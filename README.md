@@ -93,6 +93,21 @@ Untuk melihat atau menguji website di komputer lokal:
    ```
 3. Buka `http://localhost:8080` di browser.
 
+### Regenerasi Halaman & PDF
+
+`index.html` di root adalah halaman utama dan **diedit langsung** (bukan hasil generator). Halaman pendukung (`command.html`, `panduan.html`, `dokumentasi.html`, `changelog.html`) dihasilkan dari `content.js`:
+
+```bash
+npm run generate
+```
+
+Perintah diambil dari `commands-data.json` (hasil ekstraksi registry bot). Untuk memperbarui daftar perintah sekaligus PDF-nya:
+
+```bash
+npm run pdf   # menulis assets/pdf/daftar-perintah-idaido-bot.pdf
+npm run generate
+```
+
 ---
 
 ## 📄 Lisensi & Hak Cipta
